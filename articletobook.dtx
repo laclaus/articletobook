@@ -301,7 +301,8 @@
 \titleformat{name=\bookchapter,numberless}
     [display]
     {\normalfont\huge\bfseries}
-    {\setlength{\@tempdima}{-\baselineskip}
+    {\setlength{\@tempdima}{-\parskip}
+        \addtolength{\@tempdima}{-\baselineskip}
         \addtolength{\@tempdima}{40pt}}
     {0pt}
     {\Huge}
