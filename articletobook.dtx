@@ -327,12 +327,9 @@
 %    Finally, we let |\bookpart| and |\bookchapter| to |\part| and |\chapter| respectively.
 %    \begin{macrocode}
 \let\part\bookpart
-\let\chapter\bookchapter
-\if@mainmatter\else
-    \def{\chapter}[2][#2]{
-        \begingroup\setcounter{secnumdepth}{-1}\bookchapter[#1]{#2}\endgroup
-    }
-\fi
+\def{\chapter}{\bookchapter
+    \if@mainmatter\else TEST \fi
+}
 
 %\newcommand{\bookchapterbreak}{\if@openright\cleardoublepage\else\clearpage\fi}
 %    \end{macrocode}
