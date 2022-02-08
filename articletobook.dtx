@@ -117,6 +117,7 @@
 %    \begin{macrocode}
 \RequirePackage[notocpart*,loadonly]{titlesec}
 \RequirePackage{titletoc}
+\RequirePackage{etoolbox}
 %    \end{macrocode}
 %
 % \begin{macro}{\@ifmainmatter}
@@ -236,7 +237,7 @@
     \titleformat{\bookchapter}
         [display]
         {\normalfont\huge\bfseries}
-        {}
+        {\addtocounter{chapter}{-1}}
         {20pt}
         {\Huge}
     \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
@@ -254,10 +255,11 @@
         \clearpage
     \fi
     \@mainmattertrue
+    \a
     \titleformat{\bookchapter}
         [display]
         {\normalfont\huge\bfseries}
-        {\chaptername\ \thebookchapter}
+        {\@chaptername\ \thebookchapter}
         {20pt}
         {\Huge}
     \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
@@ -432,6 +434,7 @@
     {\titlerule*[1pc]{.}\contentspage}
 %    \end{macrocode}
 %    \begin{macrocode}
+\def\@chaptername\chaptername
 \newcommand{\chaptername}{Chapter}
 %</package>
 %    \end{macrocode}
