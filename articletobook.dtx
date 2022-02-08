@@ -233,6 +233,14 @@
         \clearpage
     \fi
     \@mainmatterfalse
+    \titleformat{\bookchapter}
+        [display]
+        {\normalfont\huge\bfseries}
+        {}
+        {20pt}
+        {\Huge}
+    \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
+    
     \pagenumbering{roman}}
 %    \end{macrocode}
 % \end{macro}
@@ -246,6 +254,14 @@
         \clearpage
     \fi
     \@mainmattertrue
+    \titleformat{\bookchapter}
+        [display]
+        {\normalfont\huge\bfseries}
+        {\chaptername\ \thebookchapter}
+        {20pt}
+        {\Huge}
+    \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
+    
     \pagenumbering{arabic}}
 %    \end{macrocode}
 % \end{macro}
@@ -258,7 +274,15 @@
     \else
         \clearpage
     \fi
-    \@mainmatterfalse}
+    \@mainmatterfalse
+    \titleformat{\bookchapter}
+        [display]
+        {\normalfont\huge\bfseries}
+        {\chaptername\ \thebookchapter}
+        {20pt}
+        {\Huge}
+    \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
+}
 %    \end{macrocode}
 % \end{macro}
 %
