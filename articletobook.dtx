@@ -148,6 +148,7 @@
 %
 %    \begin{macrocode}
 %<*package>
+\RequirePackage{xparse}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
     family = articletobook
@@ -234,7 +235,15 @@
     \fi
     \@mainmatterfalse
     \undef{\chapter}
-    \newcommand{\chapter}[2][##2]{\@chapter*{##2}}
+    \NewDocumentCommand{\chapter}{s o m}{
+        \IfNoValueTF{#2}{
+            \@chapter*{#3}
+            \addcontentsline{toc}{bookchapter}{#3}
+        }{
+            \@chapter{#3}
+            \addcontentsline{toc}{bookchapter}{#2}
+        }
+    }
     \pagenumbering{roman}}
 %    \end{macrocode}
 % \end{macro}
