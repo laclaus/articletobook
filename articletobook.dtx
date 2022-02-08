@@ -187,8 +187,19 @@
 %    \end{macrocode}
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
 %    \begin{macrocode}
-        \sethead[even-left][even-center][even-right]
-                {odd-left}{odd-center}{odd-right}
+        \settitlemarks{bookchapter,section}
+        \sethead
+            [\thepage]
+            []
+            [\MakeUppercase{
+                \if\c@secnumdepth>-1 \if@mainmatter
+                    \@chaptername\ \thebookchapter. \ %
+                 \fi\fi
+                 \thebookchaptertitle
+            }]
+            {}
+            {}
+            {\thepage}
     }
 \else
 
