@@ -234,7 +234,7 @@
     \fi
     \@mainmatterfalse
     \let\oldbookchapter\bookchapter
-    \renewcommand{\chapter}[2][#2]{
+    \renewcommand{\chapter}[2][##2]{
         \begingroup\setcounter{secnumdepth}{-1}\oldbookchapter[#2]{#1}\endgroup
     }
     \pagenumbering{roman}}
