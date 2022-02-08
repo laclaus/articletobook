@@ -117,6 +117,7 @@
 %    \begin{macrocode}
 \RequirePackage[notocpart*,loadonly]{titlesec}
 \RequirePackage{titletoc}
+\RequirePackage{titleps}
 %    \end{macrocode}
 %
 % \begin{macro}{\@ifmainmatter}
@@ -142,6 +143,7 @@
 \@twosidetrue
 %    \end{macrocode}
 % \end{macro}
+%
 % \section{Options}
 %
 % \subsection{Options setup}
@@ -170,6 +172,29 @@
 \ProcessKeyvalOptions*
 \input{bk1\@ptsize.clo}
 %    \end{macrocode}
+%
+% \section{Document layout}
+%
+% \subsection{Page styles}
+%
+% \subsection{Page style \pstyle{headings}}
+%
+% \begin{macro}{\ps@headings}
+%    The definition of the page style headings has to be different for two sided printing than it is for one sided printing.
+%    \begin{macrocode}
+\if@twoside
+    \renewpagestyle{headings}{}{
+%    \end{macrocode}
+%    The running feet are empty in this page style, the running head contains the page number and one of the marks.
+%    \begin{macrocode}
+        \sethead[even-left][even-center][even-right]
+                {odd-left}{odd-center}{odd-right}
+    }
+\else
+
+\fi
+%    \end{macrocode}
+% \end{macro}
 %
 % \section{Document markup}
 %
