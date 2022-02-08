@@ -357,12 +357,15 @@
 
 \contentsmargin{2.55em}
 
+\newcommand{\negphantom}[1]{\settowidth{\dimen0}{#1}\hspace*{-\dimen0}}
+
+
 \titlecontents{bookpart}
     [1.7em]
     {\addvspace{3.25em}\bfseries\large}
     {\contentslabel{1.7em}}
     {\hspace*{0em}}
-    {\normalsize\hspace{\stretch{1}}{\large\contentspage}}
+    {\titlerule*[1pc]{}\phantom{\contentspage}\negphantom{\large\contentspage}{\large\contentspage}}
 
 \titlecontents{bookchapter}
     [1.5em]
