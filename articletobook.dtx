@@ -330,7 +330,7 @@
 \if@mainmatter
     \let\chapter\bookchapter
 \else
-    \let\chapter\bookchapter*
+    \let\chapter{\begingroup\setcounter{secnumdepth}{-1}\chapter\endgroup}
 \fi
 
 %\newcommand{\bookchapterbreak}{\if@openright\cleardoublepage\else\clearpage\fi}
