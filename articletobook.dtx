@@ -325,7 +325,7 @@
 \titlespacing*{\subparagraph}
     {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 %    \end{macrocode}
-%    Finally, we let |\bookpart| and |\bookchapter| to |\part| and |\chapter| respectively.
+%    Finally, we let |\bookpart| to |\part| and carefully define |\chapter| to account for the effects of |\@ifmainmatter|.
 %    \begin{macrocode}
 \let\part\bookpart
 \NewDocumentCommand{\chapter}{s o m}{
