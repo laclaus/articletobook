@@ -236,6 +236,8 @@
     \@mainmatterfalse
     \RenewDocumentCommand{\chapter}{s o m}{
         \IfBooleanTF{##1}{
+            \@chapter*{##3}
+        }{
             \IfNoValueTF{##2}{
                 \@chapter*{##3}
                 \addcontentsline{toc}{bookchapter}{##3}
@@ -243,8 +245,6 @@
                 \@chapter*{##3}
                 \addcontentsline{toc}{bookchapter}{##2}
             }
-        }{
-            \@chapter*{##3}
         }
     }
     \pagenumbering{roman}}
