@@ -234,8 +234,7 @@
         \clearpage
     \fi
     \@mainmatterfalse
-    \undef{\chapter}
-    \NewDocumentCommand{\chapter}{s o m}{
+    \RenewDocumentCommand{\chapter}{s o m}{
         \IfNoValueTF{##2}{
             \@chapter*{##3}
             \addcontentsline{toc}{bookchapter}{##3}
