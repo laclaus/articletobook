@@ -234,7 +234,9 @@
     \fi
     \@mainmatterfalse
     \let\oldbookchapter\bookchapter
-    \def\chapter{\begingroup\setcounter{secnumdepth}{-1}\oldbookchapter\endgroup}
+    \def\chapter[2][#2]{
+        \begingroup\setcounter{secnumdepth}{-1}\oldbookchapter[#2]{#1}\endgroup
+    }
     \pagenumbering{roman}}
 %    \end{macrocode}
 % \end{macro}
