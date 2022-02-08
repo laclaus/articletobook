@@ -233,14 +233,8 @@
         \clearpage
     \fi
     \@mainmatterfalse
-    \titleformat{\bookchapter}
-        [display]
-        {\normalfont\huge\bfseries}
-        {\addtocounter{bookchapter}{-1}}
-        {20pt}
-        {\Huge}
-    \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
-    
+    \undef{\chapter}
+    \newcommand{\chapter}{\@chapter*}
     \pagenumbering{roman}}
 %    \end{macrocode}
 % \end{macro}
@@ -254,15 +248,6 @@
         \clearpage
     \fi
     \@mainmattertrue
-    \a
-    \titleformat{\bookchapter}
-        [display]
-        {\normalfont\huge\bfseries}
-        {\@chaptername\ \thebookchapter}
-        {20pt}
-        {\Huge}
-    \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
-    
     \pagenumbering{arabic}}
 %    \end{macrocode}
 % \end{macro}
@@ -275,15 +260,7 @@
     \else
         \clearpage
     \fi
-    \@mainmatterfalse
-    \titleformat{\bookchapter}
-        [display]
-        {\normalfont\huge\bfseries}
-        {\addtocounter{bookchapter}{-1}}
-        {20pt}
-        {\Huge}
-    \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
-}
+    \@mainmatterfalse}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -336,6 +313,8 @@
 \titleformat{\subparagraph}[runin]
     {\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
 
+\titlespacing*{\chapter}
+    {0pt}{50pt}{40pt}
 \titlespacing*{\section}
     {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 \titlespacing*{\subsection}
@@ -350,8 +329,8 @@
 %    Finally, we let |\bookpart| and |\bookchapter| to |\part| and |\chapter| respectively.
 %    \begin{macrocode}
 \let\part\bookpart
-\let\chapter\bookchapter
-
+\let\@chapter\bookchapter
+\let\chapter\@chapter
 %\newcommand{\bookchapterbreak}{\if@openright\cleardoublepage\else\clearpage\fi}
 %    \end{macrocode}
 % \end{macro}
@@ -433,7 +412,6 @@
     {\titlerule*[1pc]{.}\contentspage}
 %    \end{macrocode}
 %    \begin{macrocode}
-\def\@chaptername{\chaptername}
 \newcommand{\chaptername}{Chapter}
 %</package>
 %    \end{macrocode}
