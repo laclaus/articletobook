@@ -327,7 +327,7 @@
 %    Finally, we let |\bookpart| and |\bookchapter| to |\part| and |\chapter| respectively.
 %    \begin{macrocode}
 \let\part\bookpart
-\def{\chapter}{\bookchapter
+\def{\chapter}[2][#2]{\bookchapter[#1]{#2}
     \if@mainmatter\else TEST \fi
 }
 
