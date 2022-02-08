@@ -233,7 +233,8 @@
         \clearpage
     \fi
     \@mainmatterfalse
-    \let\chapter\bookchapter*
+    \let\oldbookchapter\bookchapter
+    \def\bookchapter{\begingroup\setcounter{secnumdepth}{-1}\oldbookchapter}
     \pagenumbering{roman}}
 %    \end{macrocode}
 % \end{macro}
