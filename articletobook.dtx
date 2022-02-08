@@ -280,7 +280,7 @@
     \titleformat{\bookchapter}
         [display]
         {\normalfont\huge\bfseries}
-        {\chaptername\ \thebookchapter}
+        {\addtocounter{chapter}{-1}}
         {20pt}
         {\Huge}
     \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
@@ -434,7 +434,7 @@
     {\titlerule*[1pc]{.}\contentspage}
 %    \end{macrocode}
 %    \begin{macrocode}
-\def\@chaptername\chaptername
+\def\@chaptername{\chaptername}
 \newcommand{\chaptername}{Chapter}
 %</package>
 %    \end{macrocode}
