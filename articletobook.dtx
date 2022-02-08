@@ -295,7 +295,7 @@
 \titleformat{\bookchapter}
     [display]
     {\normalfont\huge\bfseries}
-    {\chaptername\ \thebookchapter}
+    {\@chaptername\ \thebookchapter}
     {20pt}
     {\Huge}
 \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
@@ -353,7 +353,6 @@
         }
     \fi
 }
-%\newcommand{\bookchapterbreak}{\if@openright\cleardoublepage\else\clearpage\fi}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -363,6 +362,20 @@
 % \end{macro}
 % \end{macro}
 %
+% \subsection{Appendix}
+%
+%    We redefine the |\appendix| command to reset the chapter and section counters, redefine the |\@chaptername| to |\appendixname|, and start producing alphabetic chapter numbers.
+%
+% \begin{macro}{\appendix}
+%    \begin{macrocode}
+\renewcommand{\appendix}{
+    \setcounter{chapter}{0}
+    \setcounter{section}{0}
+    \gdef\@chaptername\appendixname
+    \gdef\thechapter{\@Alph\c@chapter}
+}
+\end{macrocode}
+\end{macro}
 % \subsection{Table of contents}
 %    We need to redefine the table of contents formatting using |\titlecontents|
 %    \begin{macrocode}
