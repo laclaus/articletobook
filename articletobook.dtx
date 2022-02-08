@@ -332,15 +332,15 @@
     \if@mainmatter
         \bookchapter
     \else
-        \IfBooleanTF{##1}{
-            \bookchapter*{##3}
+        \IfBooleanTF{#1}{
+            \bookchapter*{#3}
         }{
-            \IfNoValueTF{##2}{
-                \bookchapter*{##3}
-                \addcontentsline{toc}{bookchapter}{##3}
+            \IfNoValueTF{#2}{
+                \bookchapter*{#3}
+                \addcontentsline{toc}{bookchapter}{#3}
             }{
-                \bookchapter*{##3}
-                \addcontentsline{toc}{bookchapter}{##2}
+                \bookchapter*{#3}
+                \addcontentsline{toc}{bookchapter}{#2}
             }
         }
     \fi
