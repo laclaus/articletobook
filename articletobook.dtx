@@ -330,7 +330,7 @@
 \let\part\bookpart
 \NewDocumentCommand{\chapter}{s o m}{
     \if@mainmatter
-        \bookchapter
+        
     \else
         \IfBooleanTF{#1}{
             \bookchapter*{#3}
