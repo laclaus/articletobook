@@ -206,21 +206,21 @@
 %    \end{macrocode}
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
 %    \begin{macrocode}
-        \sethead[\thepage]%
+        \sethead[\slshape\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
-        {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
+        [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
+        {\slshape\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
-        {\thepage}
+        {\slshape\thepage}
     }
 %    \end{macrocode}
 %    The definition of the page style \pstyle{headings} for one sided printing can be much simpler, because we treat even and odd pages the same.
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
+        \sethead{\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
                 {}%
-                {\thepage}
+                {\slshape\thepage}
     }
 \fi
 %    \end{macrocode}
@@ -438,7 +438,6 @@
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
     \@appendixtrue
-    %\gdef\@chaptername{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
