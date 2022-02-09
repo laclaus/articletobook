@@ -1,7 +1,9 @@
 \documentclass{article}
-\usepackage[titlepage]{articletobook}
+\usepackage[]{articletobook}
 \title{Test of article to book}
 \begin{document}
+    \makeatletter
+    \if@titlepage true \else false \fi
     \frontmatter
     \maketitle
     \tableofcontents
