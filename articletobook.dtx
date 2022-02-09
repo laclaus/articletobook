@@ -422,11 +422,11 @@
 % \begin{macro}{\appendix}
 %    \begin{macrocode}
 \renewcommand{\appendix}{
-    \cleardoublepage
+    \par
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
     
-    \gdef\@chaptername{\appendixname}
+    \def\@chaptername{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
