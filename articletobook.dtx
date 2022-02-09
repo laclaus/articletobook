@@ -152,18 +152,26 @@
 %<*package>
 \RequirePackage{xparse,etoolbox}
 \RequirePackage{kvoptions}
-\SetupKeyvalOptions {
-    family = articletobook
-    prefix = articletobook@
+\SetupKeyvalOptions{
+    family = atob
+    prefix = atob@
 }
 %    \end{macrocode}
 %
+% \subsection{Options for correcting `features' of \Lpack{book}}
+%
+%    \begin{macrococde}
+\DeclareBoolOption{fixstarredmarks}
+%    \end{macrocode}
+%
 % \subsection{Options copied from the standard class \Lpack{book}}
-%    These options determine whether or not a chapter must start on a 
-%right-hand page.
+%    These options determine whether or not a chapter must start on a right-hand page.
 %    \begin{macrocode}
 \DeclareVoidOption{openright}{\@openrighttrue}
 \DeclareVoidOption{openany}{\@openrightfalse}
+%    \end{macrocode}
+%    These options determine whether two sided printing is in use or not.
+%    \begin{macrocode}
 \DeclareVoidOption{twoside}{\@twosidetrue}
 \DeclareVoidOption{oneside}{\@twosidefalse}
 %    \end{macrocode}
@@ -377,7 +385,11 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \chaptermark{\lastchaptermark}
+    \ifatob@fixstarredoptions
+        \chaptermark{#2}
+    \else
+        \chaptermark{\lastchaptermark}
+    \fi
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
