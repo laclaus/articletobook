@@ -200,7 +200,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\ifthechapter{\@chaptername\ \thechapter.\ }{}\fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
