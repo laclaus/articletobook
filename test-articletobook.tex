@@ -13,7 +13,7 @@
 %        \sectiontitle}}{}{\thepage}
 \makeatletter
 \renewpagestyle{headings}{
-    \sethead[\thepage][][\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\thebookchaptermark}]{}{}{\thepage}
+    \sethead[\thepage][][\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\chaptertitle}]{}{}{\thepage}
 }
 \pagestyle{headings}
 \makeatother
