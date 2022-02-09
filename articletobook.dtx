@@ -393,6 +393,20 @@
     \fi
     \chaptermark{#3}
 }
+\NewDocumentCommand{\@schapter}{o m}{
+    \bookchapter*[#1]{#2}
+    \chaptermark{#2}
+}
+\NewDocumentCommand{\@chapter}{o m}{
+    \if@mainmatter
+    
+    \else
+    
+    \fi
+}
+
+
+
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
 \newcommand{\thechapter}{\thebookchapter}
 \renewcommand{\chaptertitle}{\bookchaptertitle}
