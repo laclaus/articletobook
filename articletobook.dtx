@@ -376,7 +376,8 @@
 }
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
-    \chaptermark{#1}
+    
+    \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
@@ -385,6 +386,7 @@
         \bookchapter*{#2}
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
+    \def\lastchaptermark{#1}
     \chaptermark{#1}
 }
 
@@ -488,6 +490,7 @@
 % \section{Initialization}
 %
 %    \begin{macrocode}
+\def\lastchaptermark{}
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
