@@ -383,7 +383,7 @@
         \@noschapterfalse
     }{
         \@chapter{#2}{#3}
-        \@noschaptertrue
+        \iffix\@noschaptertrue\fi
     }
 }
 \NewDocumentCommand{\@schapter}{m m}{
