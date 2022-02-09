@@ -385,11 +385,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \ifatob@fixstarredmarks
-        \chaptermark{#2}
-    \else
-        \chaptermark{\lastchaptermark}
-    \fi
+    \@chaptermark{#1}{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
@@ -401,7 +397,13 @@
     \def\lastchaptermark{#1}
     \chaptermark{#1}
 }
-
+\newcommand{\@chaptermark}[2]{
+    \ifatob@fixstarredmarks
+        \chaptermark{#1}
+    \else
+        \chaptermark{#2}
+    \fi
+}
 
 
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
