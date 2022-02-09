@@ -200,7 +200,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -376,11 +376,14 @@
 %    \begin{macrocode}
 \let\part\bookpart
 \settitlemarks{bookchapter,section}
+\newif\if@schapter \@noschaptertrue
 \NewDocumentCommand{\chapter}{s O{#3} m}{
     \IfBooleanTF{#1}{
         \@schapter{#2}{#3}
+        \@noschapterfalse
     }{
         \@chapter{#2}{#3}
+        \@noschaptertrue
     }
 }
 \NewDocumentCommand{\@schapter}{m m}{
