@@ -367,42 +367,25 @@
 %    \begin{macrocode}
 \let\part\bookpart
 \settitlemarks{bookchapter,section}
-\NewDocumentCommand{\chapter}{s o m}{
-    \if@mainmatter
-        \IfBooleanTF{#1}{
-            \bookchapter*{#3}
-        }{
-            \IfNoValueTF{#2}{
-                \bookchapter{#3}
-            }{
-                \bookchapter[#2]{#3}
-            }
-        }
-    \else
-        \IfBooleanTF{#1}{
-            \bookchapter*{#3}
-        }{
-            \IfNoValueTF{#2}{
-                \bookchapter*{#3}
-                \addcontentsline{toc}{bookchapter}{#3}
-            }{
-                \bookchapter*{#3}
-                \addcontentsline{toc}{bookchapter}{#2}
-            }
-        }
-    \fi
-    \chaptermark{#3}
+\NewDocumentCommand{\chapter}{s O{#3} m}{
+    \IfBooleanTF{#1}{
+        \@schapter[#2]{#3}
+    }{
+        \@chapter[#2]{#3}
+    }
 }
-\NewDocumentCommand{\@schapter}{o m}{
+\NewDocumentCommand{\@schapter}{O{#2} m}{
     \bookchapter*[#1]{#2}
     \chaptermark{#2}
 }
-\NewDocumentCommand{\@chapter}{o m}{
+\NewDocumentCommand{\@chapter}{O{#2} m}{
     \if@mainmatter
-    
+        \bookchapter[#1]{#2}
     \else
-    
+        \bookchapter*[#1]{#2}
+        \addcontentsline{toc}{bookchapter}{#1}
     \fi
+    \chaptermark{#1}
 }
 
 
