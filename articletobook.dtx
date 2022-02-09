@@ -150,7 +150,7 @@
 %
 %    \begin{macrocode}
 %<*package>
-\RequirePackage{xparse,afterpage}
+\RequirePackage{xparse,etoolbox}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
     family = atob
@@ -425,7 +425,8 @@
     \par
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
-    \afterpage{\gdef\@chaptername{\appendixname}}
+    
+    \gdef\@chaptername{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
