@@ -440,6 +440,18 @@
 % \end{macro}
 % \end{macro}
 %
+% \section{Redefining environments}
+%
+% \subsection{Abstract}
+%
+%    This environment should be undefined for \Lpack{book}
+% \begin{environment}{abstract}
+%    \begin{macrocode}
+\undef{\abstract}
+\undef{\endabstract}
+%    \end{macrocode}
+% \end{environment}
+%
 % \subsection{Appendix}
 %
 %    We redefine the |\appendix| command to reset the bookchapter and section counters, redefine |\@chaptername| to |\appendixname|, and start producing alphabetic chapter numbers.
