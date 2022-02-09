@@ -153,8 +153,9 @@
 \RequirePackage{xparse,etoolbox}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
-    family = atob
+    family = atob,
     prefix = atob@
+    
 }
 %    \end{macrocode}
 %
@@ -179,7 +180,7 @@
 %    \end{macrocode}
 %    These options determine whether to adjust the layout to math \Lpack{book}
 %    \begin{macrocode}
-\DeclareBoolOption{booklayout}
+\DeclareBoolOption[true]{booklayout}
 \DeclareComplementaryOption{originallayout}{booklayout}
 %    \end{macrocode}
 %
