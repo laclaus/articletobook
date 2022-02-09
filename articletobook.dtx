@@ -71,7 +71,7 @@
 %    \end{macrocode}
 %    Here are some commonly used abbreviations:
 %    \begin{macrocode}
-\input{ltxdoc-commands.def}
+\{ltxdoc-commands.def}
 %    \end{macrocode}
 %    We also want the full details.
 %    \begin{macrocode}
@@ -176,12 +176,19 @@
 \DeclareVoidOption{twoside}{\@twosidetrue}
 \DeclareVoidOption{oneside}{\@twosidefalse}
 %    \end{macrocode}
+%    These options determine whether to adjust the layout to math \Lpack{book}
+%    \begin{macrocode}
+\DeclareBoolOption[true]{booklayout}
+\DeclareComplementaryOption{originallayout}{booklayout}
+\ifatob@booklayout
+    \input{bk1\@ptsize.clo}
+\fi
+%    \end{macrocode}
 %
 % \subsection{Options processing}
 
 %    \begin{macrocode}
 \ProcessKeyvalOptions*
-\input{bk1\@ptsize.clo}
 %    \end{macrocode}
 %
 % \section{Document layout}
