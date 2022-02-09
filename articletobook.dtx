@@ -377,6 +377,7 @@
             }{
                 \bookchapter[#2]{#3}
             }
+            \chaptermark{#3}
         }
     \else
         \IfBooleanTF{#1}{
@@ -389,9 +390,9 @@
                 \bookchapter*{#3}
                 \addcontentsline{toc}{bookchapter}{#2}
             }
+            \chaptermark{#3}
         }
     \fi
-    \chaptermark{#3}
 }
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
 \newcommand{\thechapter}{\thebookchapter}
