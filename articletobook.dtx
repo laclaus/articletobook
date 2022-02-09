@@ -388,7 +388,6 @@
     
     \iffix\def\lastchaptermark{#1}\fi
     
-    %\renewcommand{\bookchaptermark}{}
     \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
@@ -399,12 +398,11 @@
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
     \def\lastchaptermark{#1}
-    \renewcommand{\bookchaptermark}{\@chaptermark}
     \chaptermark{#1}
 }
 
 
-\let\@chaptermark\bookchaptermark
+
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
 \newcommand{\thechapter}{\thebookchapter}
 \renewcommand{\chaptertitle}{\bookchaptertitle}
@@ -504,7 +502,7 @@
 % \section{Initialization}
 %
 %    \begin{macrocode}
-\def\haptermark{}
+\def\lastchaptermark{}
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
