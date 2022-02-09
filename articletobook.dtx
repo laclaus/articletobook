@@ -188,11 +188,11 @@
 %    \begin{macrocode}
         \settitlemarks{bookchapter}
         \settitlemarks*{section}
-        \sethead[\thepage][][\MakeUppercase{%
-            %    \ifnum\c@secnumdepth>\m@ne\if@mainmatter%
-            %    \@chaptername\ \thebookchapter.\ %
-            %    \fi\fi%
-            %    \bookchaptertitle}]{}{}{\thepage}
+        \sethead[\thepage][\MakeUppercase{%
+            \ifnum\c@secnumdepth>\m@ne\if@mainmatter%
+            \@chaptername\ \thebookchapter.\ %
+            \fi\fi%
+            \bookchaptertitle}]{}{}{\thepage}
     }
 
 %    \end{macrocode}
