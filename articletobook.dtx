@@ -168,7 +168,7 @@
 % \subsection{Options copied from the standard class \Lpack{book}}
 %    These options determine whether or not to produce a titlepage.
 %    \begin{macrocode}
-\DeclareVoidOption{titlepage}{\@titlepagetrue}
+\DeclareVoidOption{titlepage}{\AtBeginDocument{\@titlepagetrue}}
 \DeclareVoidOption{notitlepage}{\@titlepagefalse}
 %    \end{macrocode}%    These options determine whether or not a chapter must start on a right-hand page.
 %    \begin{macrocode}
