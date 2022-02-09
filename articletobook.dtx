@@ -386,7 +386,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \iffix\def\lastchaptermark{#1}\fi
+    \iffix\def\lastchaptermark{}\fi
     
     \chaptermark{\lastchaptermark}
 }
@@ -502,7 +502,7 @@
 % \section{Initialization}
 %
 %    \begin{macrocode}
-\def\lastchaptermark{}
+\def\haptermark{}
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
