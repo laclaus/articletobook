@@ -192,11 +192,15 @@
             [\thepage]%
             []%
             [\MakeUppercase{%
-                \ifnum\c@secnumdepth>-1\if@mainmatter%
+                \ifnum\c@secnumdepth>\m@ne\if@mainmatter%
                     \@chaptername\ \thebookchapter.\ %
                 \fi\fi%
                 \bookchaptertitle}]%
-            {}%
+            {\MakeUppercase{%
+                \ifnum\c@secnumdepth>\z@%
+                    \thesection.\ %
+                \fi%
+                \sectiontitle}}%
             {}%
             {\thepage}
     }
