@@ -2,21 +2,6 @@
 \usepackage{articletobook}
 \title{Test of article to book}
 
-%\sethead[\thepage][][\MakeUppercase{%
-%    \ifnum\c@secnumdepth>\m@ne\if@mainmatter%
-%    \@chaptername\ \thebookchapter.\ %
-%    \fi\fi%
-%    \bookchaptertitle}]{\MakeUppercase{%
-%        \ifnum\c@secnumdepth>\z@%
-%        \thesection.\ %
-%        \fi%
-%        \sectiontitle}}{}{\thepage}
-\makeatletter
-\renewpagestyle{headings}{
-    \sethead[\thepage][][\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}]{\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}{}{\thepage}
-}
-\pagestyle{headings}
-\makeatother
 \begin{document}
     \frontmatter
 %    \maketitle
