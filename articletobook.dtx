@@ -190,11 +190,11 @@
 % \subsection{Options processing}
 
 %    \begin{macrocode}
-\PassOptionsToClass{titlepage}{article}
 \ProcessKeyvalOptions*
 \ifatob@booklayout
     \input{bk1\@ptsize.clo}
 \fi
+\PassOptionsToClass{titlepage}{article}
 %    \end{macrocode}
 %
 % \section{Document layout}
