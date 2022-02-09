@@ -182,14 +182,21 @@
 % \begin{macro}{\ps@headings}
 %    The definition of the page style headings has to be different for two sided printing than it is for one sided printing.
 %    \begin{macrocode}
-
-
-        \sethead[TEST][][]{TEST}{}{}
+    \renewpagestyle{headings}{%
 %    \end{macrocode}
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
 %    \begin{macrocode}
         %\settitlemarks{bookchapter,section}
-        
+        \sethead[\thepage][][\MakeUppercase{%
+            \ifnum\c@secnumdepth>\m@ne\if@mainmatter%
+            \@chaptername\ \thebookchapter.\ %
+            \fi\fi%
+            \bookchaptertitle}]{\MakeUppercase{%
+                \ifnum\c@secnumdepth>\z@%
+                \thesection.\ %
+                \fi%
+                \sectiontitle}}{}{\thepage}
+    }
 
 %    \end{macrocode}
 % \end{macro}
@@ -477,6 +484,7 @@
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 
+\pagestyle{headings}
 %</package>
 %    \end{macrocode}
 % \Finale
