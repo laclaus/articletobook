@@ -188,17 +188,11 @@
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
 %    \begin{macrocode}
         %\settitlemarks{bookchapter,section}
-        \sethead[\thepage][][\MakeUppercase{%
-            \@chaptername\ \thebookchapter.\ %
-            \bookchaptertitle}]{\MakeUppercase{%
-                \ifnum\c@secnumdepth>\z@%
-                \thesection.\ %
-                \fi%
-                \sectiontitle}}{}{\thepage}
+        \sethead[\thepage][][]{}{}{\thepage}
     }
 
 
-
+\fi
 %    \end{macrocode}
 % \end{macro}
 %
