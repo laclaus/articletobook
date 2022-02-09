@@ -380,10 +380,10 @@
 \NewDocumentCommand{\chapter}{s O{#3} m}{
     \IfBooleanTF{#1}{
         \@schapter{#2}{#3}
-        \@noschapterfalse
+        \iffix\@noschapterfalse\fi
     }{
         \@chapter{#2}{#3}
-        \iffix\@noschaptertrue\fi
+        \@noschaptertrue
     }
 }
 \NewDocumentCommand{\@schapter}{m m}{
