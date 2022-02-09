@@ -388,7 +388,8 @@
     
     \iffix\def\lastchaptermark{#1}\fi
     
-    %\chaptermark{\lastchaptermark}
+    \renewcommand{\bookchaptermark}{}
+    \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
@@ -398,11 +399,12 @@
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
     \def\lastchaptermark{#1}
+    \renewcommand{\bookchaptermark}{\@chaptermark}
     \chaptermark{#1}
 }
 
 
-
+\let\@chaptermark\bookchaptermark
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
 \newcommand{\thechapter}{\thebookchapter}
 \renewcommand{\chaptertitle}{\bookchaptertitle}
