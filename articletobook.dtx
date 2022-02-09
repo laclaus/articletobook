@@ -376,7 +376,7 @@
 %    \begin{macrocode}
 \let\part\bookpart
 \settitlemarks{bookchapter,section}
-\newif\if@schapter \@noschaptertrue
+\newif\if@noschapter \@noschaptertrue
 \NewDocumentCommand{\chapter}{s O{#3} m}{
     \IfBooleanTF{#1}{
         \@schapter{#2}{#3}
