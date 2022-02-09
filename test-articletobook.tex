@@ -2,6 +2,34 @@
 \usepackage{articletobook}
 \title{Test of article to book}
 
+%\NewDocumentCommand{\chapter}{s O{#2} m}{
+%    \if@mainmatter
+%    \IfBooleanTF{#1}{
+%        \bookchapter*{#3}
+%    }{
+%        \IfNoValueTF{#2}{
+%            \bookchapter{#3}
+%        }{
+%            \bookchapter[#2]{#3}
+%        }
+%    }
+%    \else
+%    \IfBooleanTF{#1}{
+%        \bookchapter*{#3}
+%    }{
+%        \IfNoValueTF{#2}{
+%            \bookchapter*{#3}
+%            \addcontentsline{toc}{bookchapter}{#3}
+%        }{
+%            \bookchapter*{#3}
+%            \addcontentsline{toc}{bookchapter}{#2}
+%        }
+%    }
+%    \fi
+%    \chaptermark{#3}
+%}
+
+
 \begin{document}
     \frontmatter
 %    \maketitle
