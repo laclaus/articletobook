@@ -348,6 +348,7 @@
 %    Finally, we let |\bookpart| to |\part| and carefully define |\chapter| to account for the effects of |\@ifmainmatter|.
 %    \begin{macrocode}
 \let\part\bookpart
+\settitlemarks{chapter}
 \NewDocumentCommand{\chapter}{s o m}{
     \if@mainmatter
         \IfBooleanTF{#1}{
@@ -418,9 +419,6 @@
 }
 
 \contentsmargin{2.55em}
-
-\newcommand{\negphantom}[1]{\settowidth{\dimen0}{#1}\hspace*{-\dimen0}}
-
 
 \titlecontents{bookpart}
     [1.6em]
