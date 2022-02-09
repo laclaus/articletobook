@@ -120,14 +120,6 @@
 \RequirePackage[nopatches]{titleps}
 %    \end{macrocode}
 %
-% \begin{macro}{\if@titlepage}
-%    A switch to indicate if twosided printing is in use. 
-%The default is yes.
-%    \begin{macrocode}
-\PassOptionsToClass{titlepage}{article}
-%    \end{macrocode}
-% \end{macro}
-%
 % \begin{macro}{\@ifmainmatter}
 %    The switch |\@ifmainmatter| indicates whether we are processing 
 %the main material in the book.
@@ -198,6 +190,7 @@
 % \subsection{Options processing}
 
 %    \begin{macrocode}
+\PassOptionsToClass{titlepage}{article}
 \ProcessKeyvalOptions*
 \ifatob@booklayout
     \input{bk1\@ptsize.clo}
