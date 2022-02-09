@@ -200,7 +200,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\chaptertitlename\ \thechapter.\ \fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -505,7 +505,7 @@
 %    \begin{macrocode}
 \def\lastchaptermark{}
 \newcommand{\chaptername}{Chapter}
-\newcommand{\@chaptername}{\chaptername}
+\DeclareRobustCommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
 %</package>
 %    \end{macrocode}
