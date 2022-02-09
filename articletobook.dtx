@@ -161,7 +161,8 @@
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
 %    \begin{macrococde}
-\DeclareBoolOption{fixstarredmarks}
+\newif\iffix
+\DeclareVoidOption{fixstarredmarks}{\fixtrue}
 %    \end{macrocode}
 %
 % \subsection{Options copied from the standard class \Lpack{book}}
@@ -385,7 +386,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \ifatob@fixstarredmarks\relax\fi
+    \iffix\relax\fi
     
     \chaptermark{\lastchaptermark}
 }
