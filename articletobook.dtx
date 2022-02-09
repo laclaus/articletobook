@@ -206,12 +206,12 @@
 %    \end{macrocode}
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
 %    \begin{macrocode}
-        \sethead[\slshape\thepage]%
+        \sethead[\thepage]%
         []%
         [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
         {\slshape\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
-        {\slshape\thepage}
+        {\thepage}
     }
 %    \end{macrocode}
 %    The definition of the page style \pstyle{headings} for one sided printing can be much simpler, because we treat even and odd pages the same.
@@ -220,7 +220,7 @@
     \renewpagestyle{headings}{
         \sethead{\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
                 {}%
-                {\slshape\thepage}
+                {\thepage}
     }
 \fi
 %    \end{macrocode}
