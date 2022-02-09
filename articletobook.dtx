@@ -348,7 +348,7 @@
 %    Finally, we let |\bookpart| to |\part| and carefully define |\chapter| to account for the effects of |\@ifmainmatter|.
 %    \begin{macrocode}
 \let\part\bookpart
-\settitlemarks{chapter}
+\settitlemarks{bookchapter}
 \NewDocumentCommand{\chapter}{s o m}{
     \if@mainmatter
         \IfBooleanTF{#1}{
@@ -375,7 +375,7 @@
     \fi
     \let\thechapternum\thebookchapter
     \renewcommand{\thebookchaptermark}{#3}
-    \chaptermark{#3}
+    \bookchaptermark{#3}
 
 }
 %    \end{macrocode}
