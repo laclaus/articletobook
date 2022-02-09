@@ -426,7 +426,7 @@
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
     
-    \gdef\@chaptername{\appendixname}
+    \DeclareRobustCommand{\@chaptername}{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
