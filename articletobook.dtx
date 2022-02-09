@@ -372,9 +372,7 @@
             }
         }
     \fi
-    \renewcommand{\thebookchaptermark}{
-        \MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi#3}
-    }
+    \renewcommand{\thebookchaptermark}{#3}
 }
 %    \end{macrocode}
 % \end{macro}
