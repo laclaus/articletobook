@@ -386,7 +386,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \iffix\relax\fi
+    \iffix\def\lastchaptermark{#1}\fi
     
     \chaptermark{\lastchaptermark}
 }
