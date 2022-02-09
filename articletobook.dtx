@@ -120,6 +120,14 @@
 \RequirePackage[nopatches]{titleps}
 %    \end{macrocode}
 %
+% \begin{macro}{\if@titlepage}
+%    A switch to indicate if twosided printing is in use. 
+%The default is yes.
+%    \begin{macrocode}
+\@titlepagetrue
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@ifmainmatter}
 %    The switch |\@ifmainmatter| indicates whether we are processing 
 %the main material in the book.
@@ -166,7 +174,11 @@
 %    \end{macrocode}
 %
 % \subsection{Options copied from the standard class \Lpack{book}}
-%    These options determine whether or not a chapter must start on a right-hand page.
+%    These options determine whether or not to produce a titlepage.
+%    \begin{macrocode}
+\DeclareVoidOption{titlepage}{\@titlepagetrue}
+\DeclareVoidOption{notitlepage}{\@titlepagefalse}
+%    \end{macrocode}%    These options determine whether or not a chapter must start on a right-hand page.
 %    \begin{macrocode}
 \DeclareVoidOption{openright}{\@openrighttrue}
 \DeclareVoidOption{openany}{\@openrightfalse}
