@@ -180,7 +180,7 @@
 % \subsection{Page style \pstyle{headings}}
 %
 % \begin{macro}{\ps@headings}
-%    The definition of the page style headings has to be different for two sided printing than it is for one sided printing.
+%    The definition of the page style \pstyle{headings} has to be different for two sided printing than it is for one sided printing.
 %    \begin{macrocode}
 \if@twoside
     \renewpagestyle{headings}{
@@ -193,6 +193,15 @@
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
+    }
+%    \end{macrocode}
+%    The definition of the page style \pstyle{headings} for one sided printing can be much simpler, because we treat even and odd pages the same.
+%    \begin{macrocode}
+\else
+    \renewpagestyle{headings}{
+        \sethead{\thepage}%
+                {}%
+                {\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}}
     }
 \fi
 %    \end{macrocode}
