@@ -191,7 +191,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -201,7 +201,7 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}}%
+        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
                 {}%
                 {\thepage}
     }
@@ -363,7 +363,7 @@
 \titlespacing*{\subparagraph}
     {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 %    \end{macrocode}
-%    Finally, we let |\bookpart| to |\part| and carefully define |\chapter| to account for the effects of |\@ifmainmatter|.
+%    Finally, we let |\bookpart| to |\part| and carefully define |\chapter| to account for the effects of |\@ifmainmatter|. We must also enable marks for |\bookchapter| and |\section|.
 %    \begin{macrocode}
 \let\part\bookpart
 \settitlemarks{bookchapter,section}
@@ -393,6 +393,9 @@
     \fi
     \bookchaptermark{#3}
 }
+\let\chaptermark\bookchaptermark
+\renewcommand{\thechapter}{\thebookchapter}
+\renewcommand{\chaptertitle}{\bookchaptertitle}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -488,7 +491,6 @@
 % \section{Initialization}
 %
 %    \begin{macrocode}
-\newcommand{\thechapternum}{}
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
