@@ -638,7 +638,7 @@
 %
 % \begin{environment}{thebibliography}
 %    \begin{macrocode}
-\newenvironment{thebibliography}[1]
+\renewenvironment{thebibliography}[1]
 {\chapter*{\bibname}%
     \vspace{-40pt}
     \list{\@biblabel{\@arabic\c@enumiv}}%
@@ -664,7 +664,7 @@
 %
 % \begin{environment}{theindex}
 %    \begin{macrocode}
-\newenvironment{theindex}
+\renewenvironment{theindex}
 {\if@twocolumn
     \@restonecolfalse
     \else
