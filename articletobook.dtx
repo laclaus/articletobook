@@ -410,12 +410,10 @@
 %
 % \begin{macro}{\appendix}
 %    \begin{macrocode}
-\newif\if@appendix
 \renewcommand{\appendix}{
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
-    \@appendixtrue
-    %\gdef\@chaptername{\appendixname}
+    \gdef\@chaptername{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
@@ -494,13 +492,7 @@
 %    \begin{macrocode}
 \def\lastchaptermark{}
 \newcommand{\chaptername}{Chapter}
-\newcommand{\@chaptername}{
-    \if@appendix
-        \appendixname
-    \else
-        \chaptername
-    \fi
-}
+\newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
 %</package>
 %    \end{macrocode}
