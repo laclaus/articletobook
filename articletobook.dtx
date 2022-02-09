@@ -426,7 +426,7 @@
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
     
-    \DeclareRobustCommand{\@chaptername}{\appendixname}
+    \gdef\@chaptername{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
@@ -505,7 +505,7 @@
 %    \begin{macrocode}
 \def\lastchaptermark{}
 \newcommand{\chaptername}{Chapter}
-\DeclareRobustCommand{\@chaptername}{\chaptername}
+\newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
 %</package>
 %    \end{macrocode}
