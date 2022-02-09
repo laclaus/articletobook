@@ -182,7 +182,7 @@
 % \begin{macro}{\ps@headings}
 %    The definition of the page style headings has to be different for two sided printing than it is for one sided printing.
 %    \begin{macrocode}
-\if@twoside
+
     \renewpagestyle{headings}{}{
 %    \end{macrocode}
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
@@ -190,9 +190,9 @@
         %\settitlemarks{bookchapter,section}
         \sethead[TEST][][]{TEST}{}{}
     }
-\else
 
-\fi
+
+
 %    \end{macrocode}
 % \end{macro}
 %
