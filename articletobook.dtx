@@ -150,7 +150,7 @@
 %
 %    \begin{macrocode}
 %<*package>
-\RequirePackage{xparse,etoolbox}
+\RequirePackage{xparse,afterpage}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
     family = atob
@@ -200,7 +200,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@appendix\appendixname\else\chaptername\fi\ \thechapter.\ \fi\fi\chaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -377,11 +377,6 @@
 \let\part\bookpart
 \settitlemarks{bookchapter,section}
 \NewDocumentCommand{\chapter}{s O{#3} m}{
-    \if@appendix
-        \gdef\@chaptername{\appendixname}
-    \else
-        \gdef\@chaptername{\chaptername}
-    \fi
     \IfBooleanTF{#1}{
         \@schapter{#2}{#3}
     }{
@@ -426,12 +421,11 @@
 %
 % \begin{macro}{\appendix}
 %    \begin{macrocode}
-\newif\if@appendix
 \renewcommand{\appendix}{
     \par
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
-    \@appendixtrue
+    \afterpage{\gdef\@chaptername{\appendixname}}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
