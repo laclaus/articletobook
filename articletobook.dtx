@@ -191,7 +191,8 @@
         \sethead
             [\thepage]
             []
-            [\MakeUppercase{\ifnum\thesecnumdepth>-1 \if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}]
+            [\MakeUppercase{%
+                \ifnum\thesecnumdepth>-1 \if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}]
             {}
             {}
             {\thepage}
