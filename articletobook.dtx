@@ -349,7 +349,7 @@
 
 \titleformat{\bookchapter}
     [display]
-    {\normalfont\huge\bfseries}
+    {\normalfont\huge\bfseries\if@appendix\gdef\@chaptername{\appendixname}\fi}
     {\@chaptername\ \thebookchapter}
     {20pt}
     {\Huge}
