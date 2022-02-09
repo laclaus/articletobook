@@ -200,7 +200,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\else\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -210,7 +210,7 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}}%
+        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\else\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}}%
                 {}%
                 {\thepage}
     }
@@ -387,8 +387,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \iffix\def\lastchaptermark{#1}\fi
-    \@starchaptrue
+    \iffix\def\lastchaptermark{#1}\@starchaptrue\fi
     \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
