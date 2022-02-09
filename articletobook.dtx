@@ -199,9 +199,9 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\thepage}%
+        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}}%
                 {}%
-                {\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thebookchapter.\ \fi\fi\bookchaptertitle}}
+                {\thepage}
     }
 \fi
 %    \end{macrocode}
