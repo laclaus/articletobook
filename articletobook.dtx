@@ -385,7 +385,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \ifatob@fixstarredmarks\fi
+    \ifatob@fixstarredmarks\relax\fi
     
     \chaptermark{\lastchaptermark}
 }
