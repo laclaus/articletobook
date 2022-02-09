@@ -179,8 +179,9 @@
 %    \end{macrocode}
 %    These options determine whether to adjust the layout to math \Lpack{book}
 %    \begin{macrocode}
-\DeclareStringOption{layout}[book]
-\if\atob@layout{book}
+\DeclareBoolOption{booklayout}
+\DeclareComplementaryOption{originallayout}{booklayout}
+\ifatob@booklayout
     \input{bk1\@ptsize.clo}
 \fi
 %    \end{macrocode}
