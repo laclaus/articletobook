@@ -12,6 +12,12 @@
 %        \fi%
 %        \sectiontitle}}{}{\thepage}
 
+\usepackage{titleps}
+\TitlepsPatchSection{\bookchapter}
+
+\renewpagestyle{headings}{
+    \sethead[even-left][even-center][even-right]{odd-left}{odd-center}{odd-right}
+}
 
 \begin{document}
     \frontmatter
