@@ -179,7 +179,7 @@
 %    \end{macrocode}
 %    These options determine whether to adjust the layout to math \Lpack{book}
 %    \begin{macrocode}
-\DeclareBoolOption{booklayout}
+\DeclareBoolOption[true]{booklayout}
 \DeclareComplementaryOption{originallayout}{booklayout}
 %    \end{macrocode}
 %
@@ -188,7 +188,7 @@
 %    \begin{macrocode}
 \ProcessKeyvalOptions*
 \ifatob@booklayout
-\   input{bk1\@ptsize.clo}
+    \input{bk1\@ptsize.clo}
 \fi
 %    \end{macrocode}
 %
