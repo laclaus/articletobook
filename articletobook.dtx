@@ -371,12 +371,12 @@
     \IfBooleanTF{#1}{
         \@schapter{#2}{#3}
     }{
-        \@chapter{#2}{#3}
-        \chaptermark{#2}
+        \@chapter[#2]{#3}
     }
 }
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
+    \chaptermark{#1}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
@@ -385,6 +385,7 @@
         \bookchapter*{#2}
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
+    \chaptermark{#1}
 }
 
 
@@ -487,7 +488,6 @@
 % \section{Initialization}
 %
 %    \begin{macrocode}
-\chaptermark{}
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
