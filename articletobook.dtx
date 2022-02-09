@@ -414,11 +414,14 @@
     \par
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
-    \preto{\chapter}{
+    \preto{\clearpage}{
         \gdef\@chaptername{\appendixname}
         \gdef\thebookchapter{\@Alph\c@bookchapter}
     }
-    
+    \preto{\cleardoublepage}{
+        \gdef\@chaptername{\appendixname}
+        \gdef\thebookchapter{\@Alph\c@bookchapter}
+    }
 }
 %    \end{macrocode}
 % \end{macro}
