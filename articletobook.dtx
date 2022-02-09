@@ -372,8 +372,9 @@
             }
         }
     \fi
-    \renewcommand{\thebookchaptermark}{#3}
     \let\thechapternum\thebookchapter
+    \renewcommand{\thebookchaptermark}{\thechapternum#3}
+
 }
 %    \end{macrocode}
 % \end{macro}
