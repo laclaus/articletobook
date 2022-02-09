@@ -203,8 +203,6 @@
 %    \begin{macrocode}
 \if@twoside
     \renewpagestyle{headings}{
-        \renewcommand{\markright}[1]{\def\rightmark{##1}}
-        \renewcommand{\markboth}[2]{\def\leftmark{##1}\def\rightmark{##2}}
 %    \end{macrocode}
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
 %    \begin{macrocode}
@@ -220,8 +218,6 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \renewcommand{\markright}[1]{\def\rightmark{##1}}
-        \renewcommand{\markboth}[2]{\def\leftmark{##1}\def\rightmark{##2}}
         \sethead{\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
                 {}%
                 {\thepage}
