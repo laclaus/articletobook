@@ -229,14 +229,12 @@
 % \begin{macro}{\ps@myheadings}
 %    \begin{macrocode}
 \renewpagestyle{myheadings}{
-    %\let\@mkboth\@gobbletwo
-    %\let\chaptermark\@gobble
     \sethead[\thepage]%
             []%
             [\slshape\leftmark]%
             {\slshape\rightmark}%
             {}%
-            {\slshape\rightmark}
+            {\thepage}
 }
 %    \end{macrocode}
 % \end{macro}
