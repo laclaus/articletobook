@@ -403,7 +403,7 @@
 \NewDocumentCommand{\chapter}{s O{#3} m}{
     \IfBooleanTF{#1}{
         \@schapter{#2}{#3}
-        \iffix\@noschapterfalse\fi
+        \iffix\@noschapterfalse\else\@noschaptertrue\fi
     }{
         \@chapter{#2}{#3}
         \@noschaptertrue
