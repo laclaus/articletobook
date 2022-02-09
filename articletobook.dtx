@@ -421,14 +421,17 @@
 %
 % \begin{macro}{\appendix}
 %    \begin{macrocode}
+\newif\if@appendix
 \renewcommand{\appendix}{
     \par
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
-    
-    \def\@chaptername{\appendixname}
+    \@appendixtrue
+    \begingroup
+    \gdef\@chaptername{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
+\AtEndDocument{\if@appendix\endgroup\fi}
 %    \end{macrocode}
 % \end{macro}
 %
