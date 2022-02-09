@@ -428,7 +428,7 @@
     \setcounter{section}{0}
     \@appendixtrue
     \begingroup
-    \gdef\@chaptername{\appendixname}
+    \def\@chaptername{\appendixname}
     \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 \AtEndDocument{\if@appendix\endgroup\fi}
