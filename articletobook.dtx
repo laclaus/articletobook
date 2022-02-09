@@ -200,7 +200,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\else\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -210,7 +210,7 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\else\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}}%
+        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
                 {}%
                 {\thepage}
     }
@@ -383,11 +383,11 @@
         \@chapter{#2}{#3}
     }
 }
-\newif\if@starchap \@starchapfalse
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \iffix\def\lastchaptermark{#1}\@starchaptrue\fi
+    \iffix\def\lastchaptermark{#1}\fi
+    
     \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
@@ -397,7 +397,6 @@
         \bookchapter*{#2}
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
-    \@starchapfalse
     \def\lastchaptermark{#1}
     \chaptermark{#1}
 }
