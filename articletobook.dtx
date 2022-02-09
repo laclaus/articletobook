@@ -246,13 +246,13 @@
 % \subsection{Defining counters}
 %
 % \begin{macro}{\c@secnumdepth}
-%    The value of the counter secnumdepth gives the depth of the highest-level sectioning command that is to produce section numbers.
+%    The value of the counter \Lcount{secnumdepth} gives the depth of the highest-level sectioning command that is to produce section numbers.
 %    \begin{macrocode}
 \setcounter{secnumdepth}{2}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\c@stocdepth}
-%    The value of the counter secnumdepth gives the depth of the highest-level sectioning command that is to produce section numbers.
+%    The value of the counter \Lcount{tocdepth} gives the depth of the highest-level sectioning command that is to produce section numbers in the table of contents.
 %    \begin{macrocode}
 \setcounter{tocdepth}{2}
 %    \end{macrocode}
@@ -440,9 +440,9 @@
 % \end{macro}
 % \end{macro}
 %
-% \section{Redefining environments}
+% \subection{Redefining environments}
 %
-% \subsection{Abstract}
+% \subsubsection{Abstract}
 %
 %    This environment should be undefined for \Lpack{book}
 % \begin{environment}{abstract}
@@ -452,7 +452,38 @@
 %    \end{macrocode}
 % \end{environment}
 %
-% \subsection{Appendix}
+% \subsubsection{Titlepage}
+%
+%    This environment includes a |\cleardoublepage| which is not present in \Lpack{article}
+% \begin{environment}{titlepage}
+%    \begin{macrocode}
+\renewenvironment{titlepage}
+    {%
+        \cleardoublepage
+        \if@twocolumn
+        \@restonecoltrue\onecolumn
+        \else
+        \@restonecolfalse\newpage
+        \fi
+        \thispagestyle{empty}%
+        \setcounter{page}\z@
+    }%
+    {\if@restonecol\twocolumn \else \newpage \fi
+    }
+%    \end{macrocode}
+% \end{environment}
+%
+% \subsubsection{Equation and eqnarray}
+%
+% \begin{macro}{\theequation}
+%    We need the equation counter to reset with the \Lcount{bookchapter} counter and we also need to redefine |\theequation|.
+%    \begin{macrocode}
+\@addtoreset{equation}{bookchapter}
+\renewcommand{\theequation}{\ifnum \c@bookchapter>\z@ \thebookchapter.\fi \@arabic\c@equation}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Appendix}
 %
 %    We redefine the |\appendix| command to reset the bookchapter and section counters, redefine |\@chaptername| to |\appendixname|, and start producing alphabetic chapter numbers.
 %
@@ -469,16 +500,43 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{Table of contents}
+% \subsection{Floating objects}
+%
+% \subsubsection{Figure}
+%
+% \begin{macro}{\c@figure}
+%    We need the \Lcount{figure} counter to reset with the \Lcount{bookchapter} counter and we also need to redefine |\thefigure|.
+%    \begin{macrocode}
+\@addtoreset{figure}{bookchapter}
+\renewcommand{\thefigure}{\ifnum \c@bookchapter>\z@ \thebookchapter.\fi \@arabic\c@figure}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Table}
+%
+% \begin{macro}{\c@table}
+%    We need the \Lcount{table} counter to reset with the \Lcount{bookchapter} counter and we also need to redefine |\thetable|.
+%    \begin{macrocode}
+\@addtoreset{table}{bookchapter}
+\renewcommand{\thetable}{\ifnum \c@bookchapter>\z@ \thebookchapter.\fi \@arabic\c@table}
+%    \end{macrocode}
+% \end{macro}
+%
+% \section{Cross referencing}
+%
+% \subsection{Table of contents etc.}
+%
+% \subsubsection{Table of contents}
+%
+% \begin{macro}{\tableofcontents}
 %    We need to redefine the table of contents formatting using |\titlecontents|
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
     \if@twocolumn
-    \@restonecoltrue\onecolumn
+        \@restonecoltrue\onecolumn
     \else
-    \@restonecolfalse
+        \@restonecolfalse
     \fi
-
     \chapter*{\contentsname}%
     \vspace{-40pt}
     \@starttoc{toc}%
@@ -536,6 +594,91 @@
     {\hspace*{-5em}}
     {\titlerule*[1pc]{.}\contentspage}
 %    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{List of figures}
+%
+% \begin{macro}{\listoffigures}
+%    We the list of figures to begin with |\chapter*|.
+%    \begin{macrocode}
+\renewcommand\listoffigures{%
+    \if@twocolumn
+        \@restonecoltrue\onecolumn
+    \else
+        \@restonecolfalse
+    \fi
+    \chapter*{\listfigurename}%
+    \vspace{-40pt}
+    \@starttoc{lof}%
+    \if@restonecol\twocolumn\fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{List of tables}
+%
+% \begin{macro}{\listoftables}
+%    We the list of tables to begin with |\chapter*|.
+%    \begin{macrocode}
+\renewcommand\listoftables{%
+    \if@twocolumn
+        \@restonecoltrue\onecolumn
+    \else
+        \@restonecolfalse
+    \fi
+    \chapter*{\listtablename}%
+    \vspace{-40pt}
+    \@starttoc{lot}%
+    \if@restonecol\twocolumn\fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Bibliography}
+%
+% \begin{environment}{thebibliography}
+%    \begin{macrocode}
+\newenvironment{thebibliography}[1]
+{\chapter*{\bibname}%
+    \vspace{-40pt}
+    \list{\@biblabel{\@arabic\c@enumiv}}%
+    {\settowidth\labelwidth{\@biblabel{#1}}%
+        \leftmargin\labelwidth
+        \advance\leftmargin\labelsep
+        \@openbib@code
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty
+        \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+    \sloppy
+    \clubpenalty4000
+    \@clubpenalty \clubpenalty
+    \widowpenalty4000%
+    \sfcode`\.\@m}
+{\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+    \endlist}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{The index}
+%
+% \begin{environment}{theindex}
+%    \begin{macrocode}
+\newenvironment{theindex}
+{\if@twocolumn
+    \@restonecolfalse
+    \else
+    \@restonecoltrue
+    \fi
+    \twocolumn[\chapter*{\indexname}]%
+    \thispagestyle{plain}\parindent\z@
+    \parskip\z@ \@plus .3\p@\relax
+    \columnseprule \z@
+    \columnsep 35\p@
+    \let\item\@idxitem}
+{\if@restonecol\onecolumn\else\clearpage\fi}
+%    \end{macrocode}
+% \end{macro}
 %
 % \section{Initialization}
 %
