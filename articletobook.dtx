@@ -373,7 +373,7 @@
         }
     \fi
     \renewcommand{\thebookchaptermark}{#3}
-    \renewcommand{\thecchapter}{\expanded\thebookchapter}
+    \let\thechapternum\thebookchapter
 }
 %    \end{macrocode}
 % \end{macro}
@@ -473,7 +473,7 @@
 % \section{Initialization}
 %
 %    \begin{macrocode}
-\newcommand{\thecchapter}{}
+\newcommand{\thechapternum}{}
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 \newcommand{\thebookchaptermark}{}
