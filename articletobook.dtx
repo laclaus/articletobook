@@ -229,6 +229,8 @@
 % \begin{macro}{\ps@myheadings}
 %    \begin{macrocode}
 \renewpagestyle{myheadings}{
+    \renewcommand{\markright}[1]{\def\rightmark{##1}}
+    \renewcommand{\markboth}[2]{\def\leftmark{##1}\def\rightmark{##2}}
     \sethead[\thepage]%
             []%
             [\slshape\leftmark]%
