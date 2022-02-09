@@ -386,9 +386,9 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \iffix\def\lastchaptermark{}\fi
+    \iffix\def\lastchaptermark{#1}\fi
     
-    \chaptermark{\lastchaptermark}
+    %\chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
