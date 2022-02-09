@@ -200,7 +200,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}]%
+        [\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
         {\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -210,7 +210,7 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
+        \sethead{\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@starchap\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}}%
                 {}%
                 {\thepage}
     }
@@ -383,11 +383,12 @@
         \@chapter{#2}{#3}
     }
 }
+\newif\if@starchap
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
     \iffix\def\lastchaptermark{#1}\fi
-    
+    \@starchaptrue
     \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
@@ -397,6 +398,7 @@
         \bookchapter*{#2}
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
+    \@starchapfalse
     \def\lastchaptermark{#1}
     \chaptermark{#1}
 }
@@ -425,14 +427,8 @@
     \par
     \setcounter{bookchapter}{0}
     \setcounter{section}{0}
-    \preto{\clearpage}{
-        \gdef\@chaptername{\appendixname}
-        \gdef\thebookchapter{\@Alph\c@bookchapter}
-    }
-    \preto{\cleardoublepage}{
-        \gdef\@chaptername{\appendixname}
-        \gdef\thebookchapter{\@Alph\c@bookchapter}
-    }
+    \gdef\@chaptername{\appendixname}
+    \gdef\thebookchapter{\@Alph\c@bookchapter}
 }
 %    \end{macrocode}
 % \end{macro}
