@@ -153,15 +153,15 @@
 \RequirePackage{xparse,etoolbox}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
-    family = articletobook
-    prefix = articletobook@
+    family = atob
+    prefix = atob@
 }
 %    \end{macrocode}
 %
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
 %    \begin{macrococde}
-
+\DeclareBoolOption{fixstarredmarks}
 %    \end{macrocode}
 %
 % \subsection{Options copied from the standard class \Lpack{book}}
@@ -384,6 +384,8 @@
 }
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
+    
+    \ifatob@fixstarredmarks\def\lastchaptermark{#1}\fi
     
     \chaptermark{\lastchaptermark}
 }
