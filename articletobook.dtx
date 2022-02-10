@@ -260,8 +260,9 @@
 % \begin{macro}{\maketitle}
 %    \begin{macrocode}
 \if@titlepage\else
-%\renewcommand{\@maketitle}{
-%}
+\renewcommand{\@maketitle}{
+    Title"
+}
 \renewcommand{\maketitle}{
     \@maketitle
 }
