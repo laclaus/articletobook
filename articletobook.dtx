@@ -68,6 +68,7 @@
 %    \begin{macrocode}
 \makeatletter
 \def\@changes@iso@date#1/#2/#3/#4\space{#1\if\relax#2\relax\else-#2-#3\fi\space}
+\def\@changes@sem@ver#1.#2.#3-#4\space{#1.#2.#3\if\relax#4\relax\else-#4}
 \def\changes@#1#2#3{%
     \let\protect\@unexpandable@protect
     \edef\@tempa{\noexpand\glossary{\@changes@iso@date#2///\space#1\levelchar
