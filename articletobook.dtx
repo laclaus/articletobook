@@ -117,7 +117,7 @@
 %    \begin{macrocode}
 \RequirePackage[notocpart*,loadonly]{titlesec}
 \RequirePackage{titletoc}
-\RequirePackage[]{titleps}
+\RequirePackage[nopatches]{titleps}
 %    \end{macrocode}
 %
 % \begin{macro}{\@ifmainmatter}
@@ -158,6 +158,12 @@
 }
 %    \end{macrocode}
 %
+% \subsection{Options for disabling features which clash}
+%
+%    \begin{macrocode}
+\DeclareBoolOption[false]{undefrules}
+%    \end{macrocode}
+%
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
 %    \begin{macrococde}
@@ -189,6 +195,11 @@
 \ProcessKeyvalOptions*
 \ifatob@booklayout
     \input{bk1\@ptsize.clo}
+\fi
+
+\ifatob@undefrules
+    \undef{\headrule}
+    \undef{\footrule}
 \fi
 %    \end{macrocode}
 %
