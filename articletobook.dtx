@@ -402,7 +402,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    %\iffix\def\lastchaptermark{#1}\fi
+    \iffix\def\lastchaptermark{#1}\fi
     
     \bookchaptermark{\lastchaptermark}
 }
