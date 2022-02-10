@@ -87,25 +87,25 @@
         }%
     }%
 }
-\def\@changes@iso@date#1/#2/#3/#4\space{#1\if\relax#2\relax\else-#2-#3\fi\space}
-\def\changes@#1#2#3{%
-    \let\protect\@unexpandable@protect
-    \edef\@tempa{\noexpand\glossary{\@changes@iso@date#2///\space
-            #1\levelchar
-            \ifx\saved@macroname\@empty
-            \space
-            \actualchar
-            \generalname
-            \else
-            \expandafter\@gobble
-            \saved@macroname
-            \actualchar
-            \string\verb\quotechar*%
-            \verbatimchar\saved@macroname
-            \verbatimchar
-            \fi
-            :\levelchar #3}}%
-    \@tempa\endgroup\@esphack}
+\^\^A\def\@changes@iso@date#1/#2/#3/#4\space{#1\if\relax#2\relax\else-#2-#3\fi\space}
+\^\^A\def\changes@#1#2#3{%
+\^\^A    \let\protect\@unexpandable@protect
+\^\^A    \edef\@tempa{\noexpand\glossary{\@changes@iso@date#2///\space
+\^\^A            #1\levelchar
+\^\^A            \ifx\saved@macroname\@empty
+\^\^A            \space
+\^\^A            \actualchar
+\^\^A            \generalname
+\^\^A            \else
+\^\^A            \expandafter\@gobble
+\^\^A            \saved@macroname
+\^\^A            \actualchar
+\^\^A            \string\verb\quotechar*%
+\^\^A            \verbatimchar\saved@macroname
+\^\^A            \verbatimchar
+\^\^A            \fi
+\^\^A            :\levelchar #3}}%
+\^\^A    \@tempa\endgroup\@esphack}
 \makeatother
 
 
