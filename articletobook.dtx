@@ -69,12 +69,11 @@
 % The standard \changes command modified slightly to better cope with
 % this multiple file document.
 \makeatletter
-\def\@changes@iso@date#1/#2/#3/#4\space{#1\if\relax#2\relax\else-#2-#3\fi\space}
 \@ifdefinable{\org@changes@}{%
     \let\org@changes@\changes@
     \@ifdefinable{\my@changes}{%
         \def\my@changes#1#2#3\@nil{%
-            \org@changes@{#1=#2}{#2}{#3}%
+            \org@changes@{#1=#2}{#2}{}%
         }%
         \renewcommand*{\changes@}[3]{%
             \my@changes#1#2#3\@nil
