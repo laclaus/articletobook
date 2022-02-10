@@ -267,6 +267,7 @@
 % \subsection{The title}
 %
 % \begin{macro}{\maketitle}
+%    If a seperate titlepage is not being used then |\maketitle| is redefined to be empty -- an error results if this is not done. The reason for this is unclear.
 %    \begin{macrocode}
 \if@titlepage\else
 \renewcommand{\maketitle}{}
