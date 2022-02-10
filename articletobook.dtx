@@ -260,15 +260,7 @@
 % \begin{macro}{\maketitle}
 %    \begin{macrocode}
 \if@titlepage\else
-\renewcommand{\@maketitle}{
-    \thispagestyle{empty}
-}
-\renewcommand{\maketitle}{
-    \clearpage
-    \thispagestyle{empty}
-    
-    \cleardoublepage
-}
+\renewcommand{\maketitle}{}
 \fi
 %    \end{macrocode}
 % \end{macro}
