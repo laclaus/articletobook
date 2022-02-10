@@ -287,12 +287,6 @@
 \setcounter{secnumdepth}{2}
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\c@stocdepth}
-%    The value of the counter \Lcount{tocdepth} gives the depth of the highest-level sectioning command that is to produce section numbers in the table of contents.
-%    \begin{macrocode}
-\setcounter{tocdepth}{2}
-%    \end{macrocode}
-% \end{macro}
 % \begin{macro}{\c@bookpart}
 % \begin{macro}{\c@bookchapter}
 %    The value of these counters gives the current part or chapter. The section counter must be reset by the chapter counter using |\@addtoreset|.
@@ -407,7 +401,6 @@
     {\Huge}
 \titlespacing*{\bookchapter}{0pt}{50pt}{40pt}
 
-
 \titleformat{\section}
     {\normalfont\Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}
@@ -432,7 +425,7 @@
 \titlespacing*{\subparagraph}
     {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 %    \end{macrocode}
-%    Finally, we let |\bookpart| to |\part| and carefully define |\chapter| to account for the effects of |\@ifmainmatter|. We must also enable marks for |\bookchapter| and |\section|.
+%    Finally, we let |\bookpart| to |\part| and carefully define |\chapter| to account for the effects of |\@ifmainmatter|. We must also enable marks for |\bookchapter| and |\section|. We split |\chapter| and |\section| into starred and unstarred internal versions to allow for careful control of the marks.
 %    \begin{macrocode}
 \let\part\bookpart
 \settitlemarks{bookchapter,section}
@@ -487,8 +480,6 @@
     \def\lastsectionmark{#1}
     \sectionmark{#1}
 }
-
-
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
 \newcommand{\thechapter}{\thebookchapter}
 %    \end{macrocode}
@@ -504,8 +495,8 @@
 %
 % \subsubsection{Abstract}
 %
-%    This environment should be undefined for \Lpack{book}
 % \begin{environment}{abstract}
+%    This environment should be undefined for \Lpack{book}
 %    \begin{macrocode}
 \undef{\abstract}
 \undef{\endabstract}
@@ -514,8 +505,8 @@
 %
 % \subsubsection{Titlepage}
 %
-%    This environment includes a |\cleardoublepage| which is not present in \Lpack{article}
 % \begin{environment}{titlepage}
+%    This environment includes a |\cleardoublepage| which is not present in \Lpack{article}
 %    \begin{macrocode}
 \renewenvironment{titlepage}
     {%
@@ -546,9 +537,8 @@
 %
 % \subsubsection{Appendix}
 %
-%    We redefine the |\appendix| command to reset the bookchapter and section counters, redefine |\@chaptername| to |\appendixname|, and start producing alphabetic chapter numbers.
-%
 % \begin{macro}{\appendix}
+%    We redefine the |\appendix| command to reset the bookchapter and section counters, start producing alphabetic chapter numbers, and set |\@ifappendix|. This switch is used to redefine |\@chaptername| to |\appendixname| ensuring that this change occurs in the right place.
 %    \begin{macrocode}
 \newif\if@appendix \@appendixfalse
 \renewcommand{\appendix}{
@@ -588,6 +578,13 @@
 % \section{Cross referencing}
 %
 % \subsection{Table of contents etc.}
+%
+% \begin{macro}{\c@stocdepth}
+%    The value of the counter \Lcount{tocdepth} gives the depth of the highest-level sectioning command that is to produce section numbers in the table of contents.
+%    \begin{macrocode}
+\setcounter{tocdepth}{2}
+%    \end{macrocode}
+% \end{macro}
 %
 % \subsubsection{Table of contents}
 %
@@ -663,7 +660,7 @@
 % \subsubsection{List of figures}
 %
 % \begin{macro}{\listoffigures}
-%    We the list of figures to begin with |\chapter*|.
+%    We need the list of figures to begin with |\chapter*|.
 %    \begin{macrocode}
 \renewcommand\listoffigures{%
     \if@twocolumn
@@ -683,7 +680,7 @@
 % \subsubsection{List of tables}
 %
 % \begin{macro}{\listoftables}
-%    We the list of tables to begin with |\chapter*|.
+%    We need the list of tables to begin with |\chapter*|.
 %    \begin{macrocode}
 \renewcommand\listoftables{%
     \if@twocolumn
@@ -703,6 +700,7 @@
 % \subsection{Bibliography}
 %
 % \begin{environment}{thebibliography}
+%    We need the bibliography to begin with |\chapter*|.
 %    \begin{macrocode}
 \renewenvironment{thebibliography}[1]
 {\chapter*{\bibname}%
@@ -729,6 +727,7 @@
 % \subsection{The index}
 %
 % \begin{environment}{theindex}
+%    We need the index to begin with |\chapter*|.
 %    \begin{macrocode}
 \renewenvironment{theindex}
 {\if@twocolumn
@@ -747,6 +746,8 @@
 % \end{environment}
 %
 % \section{Initialization}
+%
+%    Finally, we initialize a few necessary commands.
 %
 %    \begin{macrocode}
 \def\lastsectionmark{}
