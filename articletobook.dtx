@@ -117,7 +117,7 @@
 %    \begin{macrocode}
 \RequirePackage[notocpart*,loadonly]{titlesec}
 \RequirePackage{titletoc}
-\RequirePackage[]{titleps}
+\RequirePackage[nopatches]{titleps}
 %    \end{macrocode}
 %
 % \begin{macro}{\@ifmainmatter}
@@ -208,7 +208,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
+        [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\bookchaptertitle}]%
         {\slshape\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -218,7 +218,7 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\chaptertitle}}%
+        \sethead{\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\bookchaptertitle}}%
                 {}%
                 {\thepage}
     }
