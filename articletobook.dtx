@@ -72,8 +72,8 @@
 \@ifdefinable{\org@changes@}{%
     \let\org@changes@\changes@
     \@ifdefinable{\my@changes}{%
-        \def\my@changes v#1.#2.#3-#4\@nil{%
-            \org@changes@{v#1.#2.\six@digits{#3}-#4=v#1.#2.#3-#4}%
+        \def\my@changes v#1.#2.#3.#4\@nil{%
+            \org@changes@{v#1.#2.\six@digits{#3}=v#1.#2.#3}%
         }%
         \newcommand*{\six@digits}[1]{%
             \ifnum#1<100000 0\fi
