@@ -158,8 +158,6 @@
 }
 %    \end{macrocode}
 %
-% \subsection{Options for disabling features which clash}
-%
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
 %    \begin{macrococde}
@@ -231,8 +229,8 @@
 % \begin{macro}{\ps@myheadings}
 %    \begin{macrocode}
 \renewpagestyle{myheadings}{
-    \renewcommand{\markright}[1]{\def\rightmark{##1}}
-    \renewcommand{\markboth}[2]{\def\leftmark{##1}\def\rightmark{##2}}
+    %\renewcommand{\markright}[1]{\def\rightmark{##1}}
+    %\renewcommand{\markboth}[2]{\def\leftmark{##1}\def\rightmark{##2}}
     \sethead[\thepage]%
             []%
             [\slshape\leftmark]%
@@ -428,6 +426,7 @@
     \def\lastchaptermark{#1}
     \chaptermark{#1}
 }
+
 
 
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
