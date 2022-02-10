@@ -72,8 +72,8 @@
 \@ifdefinable{\org@changes@}{%
     \let\org@changes@\changes@
     \@ifdefinable{\my@changes}{%
-        \def\my@changes v#1.#2.#3\@nil{%
-            \org@changes@{v#1.#2.\six@digits{#3}=v#1.#2.#3}%
+        \def\my@changes v#1.#2.#3-#4\@nil{%
+            \org@changes@{v#1.#2.\six@digits{#3}-#4=v#1.#2.#3-#4}%
         }%
         \newcommand*{\six@digits}[1]{%
             \ifnum#1<100000 0\fi
@@ -122,8 +122,8 @@
 %
 % \CheckSum{0}
 %
-% \changes{v1.0.1}{2022/01/28}{Initial version}
-% \changes{v1.0.10}{2022/02/10}{First release version}
+% \changes{v1.0.0-alpha}{2022/01/28}{Initial version}
+% \changes{v1.0.0}{2022/02/10}{First release version}
 %
 %
 %
