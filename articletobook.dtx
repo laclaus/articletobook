@@ -115,9 +115,7 @@
 % \section{Initial code}
 %
 %    \begin{macrocode}
-\RequirePackage[notocpart*,loadonly]{titlesec}
-\RequirePackage{titletoc}
-\RequirePackage[nopatches]{titleps}
+
 %    \end{macrocode}
 %
 % \begin{macro}{\@ifmainmatter}
@@ -201,6 +199,9 @@
     \undef{\headrule}
     \undef{\footrule}
 \fi
+\RequirePackage[notocpart*,loadonly]{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage[nopatches]{titleps}
 %    \end{macrocode}
 %
 % \section{Document layout}
