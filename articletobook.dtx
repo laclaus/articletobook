@@ -228,11 +228,31 @@
 %
 % \begin{macro}{\ps@myheadings}
 %    \begin{macrocode}
+\renewpagestyle{myheadings}{
+    \renewcommand{\markright}[1]{\def\rightmark{##1}}
+    \renewcommand{\markboth}[2]{\def\leftmark{##1}\def\rightmark{##2}}
+    \sethead[\thepage]%
+            []%
+            [\slshape\leftmark]%
+            {\slshape\rightmark}%
+            {}%
+            {\thepage}
+}
+\renewpagestyle{myheadings}{
+    \renewcommand{\markright}[1]{\def\rightmark{##1}}
+    \renewcommand{\markboth}[2]{\def\leftmark{##1}\def\rightmark{##2}}
+    \sethead[\thepage]%
+            []%
+            [\slshape\leftmark]%
+            {\slshape\rightmark}%
+            {}%
+            {\thepage}
+}
 %    \end{macrocode}
 % \end{macro}
 %
 % \section{Document markup}
-%
+    %\iffix\def\lastchaptermark{#1}\fi
 % \subsection{Defining counters}
 %
 % \begin{macro}{\c@secnumdepth}
@@ -404,7 +424,7 @@
     
     \iffix\def\lastchaptermark{#1}\fi
     
-    \bookchaptermark{\lastchaptermark}
+    \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
@@ -414,7 +434,7 @@
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
     \def\lastchaptermark{#1}
-    \bookchaptermark{#1}
+    \chaptermark{#1}
 }
 
 
