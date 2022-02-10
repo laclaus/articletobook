@@ -1,11 +1,11 @@
 \documentclass[]{article}
 \usepackage[]{articletobook}
 \title{Test of article to book}
-\usepackage{imakeidx}
-\makeindex
+%\usepackage{imakeidx}
+%\makeindex
 \begin{document}
     \frontmatter
-    \maketitle
+%    \maketitle
 %    \tableofcontents
 %    \listoffigures
 %    \listoftables
@@ -17,11 +17,11 @@
     \subsubsection{Test subsubsec}
     \paragraph{Test para} Lorem ipsum dolor et amet
     \subparagraph{Test subpara}
-    In this example, several keywords\index{keywords} will be used 
-    which are important and deserve to appear in the Index\index{Index}.
-    
-    Terms like generate\index{generate} and some\index{others} will also 
-    show up. Terms in the index can also be nested \index{Index!nested}
+%    In this example, several keywords\index{keywords} will be used 
+%    which are important and deserve to appear in the Index\index{Index}.
+%    
+%    Terms like generate\index{generate} and some\index{others} will also 
+%    show up. Terms in the index can also be nested \index{Index!nested}
     
     \chapter{Test chap 2}
     \section{Test sec 2}
@@ -29,7 +29,7 @@
     \mainmatter
     \chapter{Test chap 3}
     \section{Test sec 3}
-    Here we cite the texbook \cite{texbook}.
+%    Here we cite the texbook \cite{texbook}.
     
     \chapter{Test chap 4}
     \section{Test sec 4}
@@ -53,9 +53,9 @@
     Nearly the end
     \clearpage
     The end
-    \begin{thebibliography}{10}
-        \bibitem{texbook}
-        Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
-    \end{thebibliography}
-    \printindex
+%    \begin{thebibliography}{10}
+%        \bibitem{texbook}
+%        Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
+%    \end{thebibliography}
+%    \printindex
 \end{document}
