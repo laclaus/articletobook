@@ -414,7 +414,7 @@
     
     \iffix\def\lastchaptermark{#1}\fi
     
-    \bookchaptermark{\lastchaptermark}
+    \chaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
@@ -424,7 +424,7 @@
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
     \def\lastchaptermark{#1}
-    \bookchaptermark{#1}
+    \chaptermark{#1}
 }
 
 
@@ -538,7 +538,7 @@
         \@restonecolfalse
     \fi
     \chapter*{\contentsname}%
-    %\chaptermark{\contentsname}
+    \chaptermark{\contentsname}
     \vspace{-40pt}
     \@starttoc{toc}%
     \if@restonecol\twocolumn\fi
