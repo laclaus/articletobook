@@ -161,7 +161,7 @@
 %
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
-%    The option \Lopt{fixstarredmarks} enables chaptermarks following starred chapters. It does not currently perform the same job for starred sections.
+%    The option \Lopt{fixstarredmarks} sets chapter and section marks following starred chapters and sections.
 %    \begin{macrocode}
 \DeclareBoolOption[false]{fixstarredmarks}
 %    \end{macrocode}
@@ -178,13 +178,13 @@
 \DeclareVoidOption{twoside}{\@twosidetrue}
 \DeclareVoidOption{oneside}{\@twosidefalse}
 %    \end{macrocode}
-%    These options determine whether to adjust the layout to math \Lpack{book}
+%    These options determine whether to adjust the layout to match \Lpack{book}.
 %    \begin{macrocode}
 \DeclareBoolOption[true]{booklayout}
 \DeclareComplementaryOption{originallayout}{booklayout}
 %    \end{macrocode}
 %
-% \subsection{Options processing}
+% \section{Executing options}
 
 %    \begin{macrocode}
 \ProcessKeyvalOptions*
@@ -196,6 +196,12 @@
     \undef{\headrule}
     \undef{\footrule}
 \fi
+%    \end{macrocode}
+%
+% \section{Loading packages}
+%
+%    This package makes heavy use of the \Lpack{titlesec} bundle of packages. It also used \Lpack{xparse} and \Lpack{etoolbox} to define and patch commands.
+%    \begin{macrocode}
 \RequirePackage[notocpart*,loadonly]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage[nopatches]{titleps}
