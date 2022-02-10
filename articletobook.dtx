@@ -208,7 +208,7 @@
 %    \begin{macrocode}
         \sethead[\thepage]%
         []%
-        [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\bookchaptertitle}]%
+        [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\chaptertitle}]%
         {\slshape\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -242,7 +242,7 @@
 % \end{macro}
 %
 % \section{Document markup}
-    %\iffix\def\lastchaptermark{#1}\fi
+%
 % \subsection{Defining counters}
 %
 % \begin{macro}{\c@secnumdepth}
