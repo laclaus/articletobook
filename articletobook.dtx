@@ -224,7 +224,8 @@
                     \if@mainmatter\if@noschapter%
                         \@chaptername\ \thechapter.\ %
                  \fi\fi\fi\bookchaptertitle}]%
-        {\slshape\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
+        {\slshape\MakeUppercase{\ifnum\c@secnumdepth>\z@%
+            \thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
     }
