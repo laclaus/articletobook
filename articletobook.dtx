@@ -117,7 +117,6 @@
 %    \begin{macrocode}
 \RequirePackage[notocpart*,loadonly]{titlesec}
 \RequirePackage{titletoc}
-\RequirePackage[nopatches]{titleps}
 %    \end{macrocode}
 %
 % \begin{macro}{\@ifmainmatter}
@@ -158,6 +157,12 @@
 }
 %    \end{macrocode}
 %
+% \subsection{Options for disabling features which clash}
+%
+%    \begin{macrocode}
+\DeclareBoolOption{pagestyles}
+%    \end{macrocode}
+%
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
 %    \begin{macrococde}
@@ -195,6 +200,11 @@
 % \section{Document layout}
 %
 % \subsection{Page styles}
+%
+%    Pagestyles are only redefined if the option \Lopt{pagestyles} is true.
+%    \begin{macrocode}
+\ifatob@pagestyles
+%    \end{macrocode}
 %
 % \subsection{Page style \pstyle{headings}}
 %
@@ -248,6 +258,7 @@
             {}%
             {\thepage}
 }
+\fi
 %    \end{macrocode}
 % \end{macro}
 %
