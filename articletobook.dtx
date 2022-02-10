@@ -123,6 +123,7 @@
 %    The switch |\@ifmainmatter| indicates whether we are processing 
 %the main material in the book.
 %    \begin{macrocode}
+%<*package>
 \newif\if@mainmatter \@mainmattertrue
 %    \end{macrocode}
 % \end{macro}
@@ -148,7 +149,6 @@
 % \subsection{Options setup}
 %
 %    \begin{macrocode}
-%<*package>
 \RequirePackage{xparse,etoolbox}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
@@ -166,8 +166,7 @@
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
 %    \begin{macrocode}
-\newif\iffix
-\DeclareVoidOption{fixstarredmarks}{\fixtrue}
+\DeclareBoolOption[false]{fixstarredmarks}
 %    \end{macrocode}
 %
 % \subsection{Options copied from the standard class \Lpack{book}}
@@ -428,7 +427,7 @@
 \NewDocumentCommand{\chapter}{s O{#3} m}{
     \IfBooleanTF{#1}{
         \@schapter{#2}{#3}
-        \iffix\@noschapterfalse\else\@noschaptertrue\fi
+        \ifatob@fixstarredmarks\@noschapterfalse\else\@noschaptertrue\fi
     }{
         \@chapter{#2}{#3}
         \@noschaptertrue
@@ -437,7 +436,7 @@
 \NewDocumentCommand{\@schapter}{m m}{
     \bookchapter*{#2}
     
-    \iffix\def\lastchaptermark{#1}\fi
+    \ifatob@fixstarredmarks\def\lastchaptermark{#1}\fi
     
     \chaptermark{\lastchaptermark}
 }
