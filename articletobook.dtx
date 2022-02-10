@@ -259,7 +259,7 @@
 %
 % \begin{macro}{\maketitle}
 %    \begin{macrocode}
-\unless\if@titlepage
+\if@titlepage\else
 \renewcommand{\@maketitle}{
     \newpage
 }
