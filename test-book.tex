@@ -1,6 +1,7 @@
 \documentclass{book}
 
 \title{Test of book}
+\makeindex
 \begin{document}
     \frontmatter
     \maketitle
@@ -15,6 +16,11 @@
     \subsubsection{Test subsubsec}
     \paragraph{Test para} Lorem ipsum dolor et amet
     \subparagraph{Test subpara}
+    In this example, several keywords\index{keywords} will be used 
+    which are important and deserve to appear in the Index\index{Index}.
+    
+    Terms like generate\index{generate} and some\index{others} will also 
+    show up. Terms in the index can also be nested \index{Index!nested}
     
     \chapter{Test chap 2}
     \section{Test sec 2}
@@ -45,10 +51,9 @@
     Nearly the end
     \clearpage
     The end
-    \begin{thebibliography}{}
-        content...
+    \begin{thebibliography}{10}
+        \bibitem{texbook}
+        Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
     \end{thebibliography}
-    \begin{theindex}
-        content...
-    \end{theindex}
+    \printindex
 \end{document}
