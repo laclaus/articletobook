@@ -414,7 +414,7 @@
     
     \iffix\def\lastchaptermark{#1}\fi
     
-    \chaptermark{\lastchaptermark}
+    \bookchaptermark{\lastchaptermark}
 }
 \NewDocumentCommand{\@chapter}{m m}{
     \if@mainmatter
@@ -424,7 +424,7 @@
         \addcontentsline{toc}{bookchapter}{#1}
     \fi
     \def\lastchaptermark{#1}
-    \chaptermark{#1}
+    \bookchaptermark{#1}
 }
 
 
