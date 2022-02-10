@@ -143,8 +143,8 @@
 %
 % \subsection{Options setup}
 %
+%    We use the package \Lpack{kvoptions} to provide a key value interface for options.
 %    \begin{macrocode}
-\RequirePackage{xparse,etoolbox}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
     family = atob,
@@ -154,12 +154,14 @@
 %
 % \subsection{Options for disabling features which clash}
 %
+%    The option \Lopt{undefrules} is used to undefine |\headrule| and |\footrule| so that they may be defined subsequently by \Lpack{titlesec}.
 %    \begin{macrocode}
 \DeclareBoolOption[false]{undefrules}
 %    \end{macrocode}
 %
 % \subsection{Options for correcting `features' of \Lpack{book}}
 %
+%    The option \Lopt{fixstarredmarks} enables chaptermarks following starred chapters.
 %    \begin{macrocode}
 \DeclareBoolOption[false]{fixstarredmarks}
 %    \end{macrocode}
@@ -197,6 +199,7 @@
 \RequirePackage[notocpart*,loadonly]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage[nopatches]{titleps}
+\RequirePackage{xparse,etoolbox}
 %    \end{macrocode}
 %
 % \section{Document layout}
