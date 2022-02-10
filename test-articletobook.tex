@@ -4,6 +4,27 @@
 \author{names}
 \usepackage{imakeidx}
 \makeindex
+
+
+\def\@changes@iso@date#1/#2/#3/#4\space{#1\if\relax#2\relax\else-#2-#3\fi\space}
+\def\changes@#1#2#3{%
+    \let\protect\@unexpandable@protect
+    \edef\@tempa{\noexpand\glossary{\@changes@iso@date#2///\space
+            #1\levelchar
+            \ifx\saved@macroname\@empty
+            \space
+            \actualchar
+            \generalname
+            \else
+            \expandafter\@gobble
+            \saved@macroname
+            \actualchar
+            \string\verb\quotechar*%
+            \verbatimchar\saved@macroname
+            \verbatimchar
+            \fi
+            :\levelchar #3}}%
+    \@tempa\endgroup\@esphack}
 \begin{document}
     \frontmatter
     \maketitle
