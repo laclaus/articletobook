@@ -219,8 +219,11 @@
 %    The running feet are empty in this page style, the running head contains the page number and one of the marks.
 %    \begin{macrocode}
         \sethead[\thepage]%
-        []%
-        [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\if@noschapter\@chaptername\ \thechapter.\ \fi\fi\fi\bookchaptertitle}]%
+                []%
+                [\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne%
+                    \if@mainmatter\if@noschapter%
+                        \@chaptername\ \thechapter.\ %
+                 \fi\fi\fi\bookchaptertitle}]%
         {\slshape\MakeUppercase{\ifnum\c@secnumdepth>\z@\thesection.\ \fi\sectiontitle}}%
         {}%
         {\thepage}
@@ -230,7 +233,9 @@
 %    \begin{macrocode}
 \else
     \renewpagestyle{headings}{
-        \sethead{\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne\if@mainmatter\@chaptername\ \thechapter.\ \fi\fi\bookchaptertitle}}%
+        \sethead{\slshape\MakeUppercase{\ifnum\c@secnumdepth>\m@ne%
+                    \if@mainmatter\@chaptername\ \thechapter.\ %
+                    \fi\fi\bookchaptertitle}}%
                 {}%
                 {\thepage}
     }
@@ -388,7 +393,8 @@
 
 \titleformat{\bookchapter}
     [display]
-    {\normalfont\huge\bfseries\if@appendix\gdef\@chaptername{\appendixname}\fi}
+    {\normalfont\huge\bfseries\if@appendix%
+        \gdef\@chaptername{\appendixname}\fi}
     {\@chaptername\ \thebookchapter}
     {20pt}
     {\Huge}
@@ -503,7 +509,8 @@
 %    We need the equation counter to reset with the \Lcount{bookchapter} counter and we also need to redefine |\theequation|.
 %    \begin{macrocode}
 \@addtoreset{equation}{bookchapter}
-\renewcommand{\theequation}{\ifnum \c@bookchapter>\z@ \thebookchapter.\fi \@arabic\c@equation}
+\renewcommand{\theequation}{\ifnum \c@bookchapter>\z@%
+    \thebookchapter.\fi \@arabic\c@equation}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -532,7 +539,8 @@
 %    We need the \Lcount{figure} counter to reset with the \Lcount{bookchapter} counter and we also need to redefine |\thefigure|.
 %    \begin{macrocode}
 \@addtoreset{figure}{bookchapter}
-\renewcommand{\thefigure}{\ifnum \c@bookchapter>\z@ \thebookchapter.\fi \@arabic\c@figure}
+\renewcommand{\thefigure}{\ifnum \c@bookchapter>\z@%
+    \thebookchapter.\fi \@arabic\c@figure}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -542,7 +550,8 @@
 %    We need the \Lcount{table} counter to reset with the \Lcount{bookchapter} counter and we also need to redefine |\thetable|.
 %    \begin{macrocode}
 \@addtoreset{table}{bookchapter}
-\renewcommand{\thetable}{\ifnum \c@bookchapter>\z@ \thebookchapter.\fi \@arabic\c@table}
+\renewcommand{\thetable}{\ifnum \c@bookchapter>\z@%
+    \thebookchapter.\fi \@arabic\c@table}
 %    \end{macrocode}
 % \end{macro}
 %
