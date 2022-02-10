@@ -653,7 +653,7 @@
 %    \begin{macrocode}
 \renewenvironment{thebibliography}[1]
 {\chapter*{\bibname}%
-    \chaptermark{Bib}
+    \chaptermark{\bibname}
     \vspace{-40pt}
     \list{\@biblabel{\@arabic\c@enumiv}}%
     {\settowidth\labelwidth{\@biblabel{#1}}%
@@ -699,6 +699,7 @@
 %
 %    \begin{macrocode}
 \def\lastchaptermark{}
+\newcommand{\bibname}{Bibliography}
 \newcommand{\chaptername}{Chapter}
 \newcommand{\@chaptername}{\chaptername}
 \pagestyle{headings}
