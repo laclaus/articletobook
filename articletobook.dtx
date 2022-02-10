@@ -457,7 +457,30 @@
     \def\lastchaptermark{#1}
     \chaptermark{#1}
 }
-
+\let\oldsection\section
+\newif\if@nossection \@nossectiontrue
+\RenewDocumentCommand{\section}{s O{#3} m}{
+    \IfBooleanTF{#1}{
+        \@ssection{#2}{#3}
+        \ifatob@fixstarredmarks\@nossectionfalse\else\@nossectiontrue\fi
+    }{
+        \@section{#2}{#3}
+        \@nossectiontrue
+    }
+}
+\NewDocumentCommand{\@ssection}{m m}{
+    \oldsection*{#2}
+    
+    \ifatob@fixstarredmarks\def\lastsectionmark{#1}\fi
+    
+    \sectionmark{\lastsectionmark}
+}
+\NewDocumentCommand{\@section}{m m}{
+    \oldsection[#1]{#2}
+    
+    \def\lastsectionmark{#1}
+    \sectionmark{#1}
+}
 
 
 \newcommand{\chaptermark}[1]{\bookchaptermark{#1}}
@@ -720,6 +743,7 @@
 % \section{Initialization}
 %
 %    \begin{macrocode}
+\def\lastsectionmark{}
 \def\lastchaptermark{}
 \newcommand{\bibname}{Bibliography}
 \newcommand{\chaptername}{Chapter}
