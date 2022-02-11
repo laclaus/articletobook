@@ -72,7 +72,7 @@
     \let\org@changes@\changes@
     \@ifdefinable{\my@changes}{%
         \def\my@changes #1#2#3{%
-            \org@changes@{\addsortkey{#1}}{#2}{#3}%
+            \org@changes@{{\addsortkey{#1}}}{#2}{#3}%
         }%
         \renewcommand*{\changes@}[3]{%
             \my@changes{#1}{#2}{#3}
