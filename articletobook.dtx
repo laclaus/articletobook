@@ -70,7 +70,7 @@
 \let\oldchanges\changes
 \renewcommand{\changes}[3]{
     \def\tempvar{#1}
-    \oldchanges{\addsortkey{\temp}}{#2}{#3}
+    \oldchanges{\addsortkey{\tempvar}}{#2}{#3}
 }
 \EnableCrossrefs
 \CodelineIndex
@@ -100,7 +100,7 @@
 %
 % \CheckSum{0}
 %
-var% \changes{v1.0.0-alpha}{2022/01/28}{Initial version}
+% \changes{v1.0.0-alpha}{2022/01/28}{Initial version}
 % \changes{v1.0.0}{2022/02/10}{First release version}
 %
 %
