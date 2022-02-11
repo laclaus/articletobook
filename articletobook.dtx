@@ -66,12 +66,6 @@
 %    \end{macrocode}
 %    We do want an index, using line numbers, and a change log.
 %    \begin{macrocode}
-\usepackage{semver}
-\let\oldchanges\changes
-\renewcommand{\changes}[3]{
-    \edef\tempvar{#1}
-    \oldchanges{\addsortkey{\tempvar}}{#2}{#3}
-}
 \EnableCrossrefs
 \CodelineIndex
 \setcounter{IndexColumns}{2}
