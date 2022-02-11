@@ -69,7 +69,7 @@
 \usepackage{semver}
 \let\oldchanges\changes
 \renewcommand{\changes}[3]{
-    \def\tempvar{#1}
+    \edef\tempvar{#1}
     \oldchanges{\addsortkey{\tempvar}}{#2}{#3}
 }
 \EnableCrossrefs
