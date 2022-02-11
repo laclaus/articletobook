@@ -68,7 +68,7 @@
 %    \begin{macrocode}
 \usepackage{semver}
 \let\oldchanges\changes
-\renewcommand{\changes}[3]{
+\renewcommand{\changes}#1#2#3{
     \def\temp{#1}
     \oldchanges{\addsortkey{\temp}{#2}{#3}
 }
