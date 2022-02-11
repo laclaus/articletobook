@@ -67,6 +67,19 @@
 %    We do want an index, using line numbers, and a change log.
 %    \begin{macrocode}
 \usepackage{semver}
+\makeatletter
+\@ifdefinable{\org@changes@}{%
+    \let\org@changes@\changes@
+    \@ifdefinable{\my@changes}{%
+        \def\my@changes #1{%
+            \org@changes@{\addsortkey{#1}}%
+        }%
+        \renewcommand*{\changes@}[1]{%
+            \my@changes#1\@nil
+        }%
+    }%
+}
+\makeatother
 \EnableCrossrefs
 \CodelineIndex
 \setcounter{IndexColumns}{2}
