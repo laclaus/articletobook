@@ -1,0 +1,11 @@
+
+ \begin{theglossary} 
+
+    \makeatletter\scan@allowedfalse
+
+  \item \addsortkey {1.0.0-alpha}\efill 
+ \subitem General:\ Initial version\pfill 1
+  \item \addsortkey {1.0.0}\efill 
+ \subitem General:\ First release version\pfill 1
+
+ \end{theglossary}
