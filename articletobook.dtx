@@ -68,12 +68,13 @@
 %    \begin{macrocode}
 \usepackage{semver}
 \makeatletter
+\ExplSyntaxOn
 \@ifdefinable{\org@changes@}{%
     \let\org@changes@\changes@
     \@ifdefinable{\my@changes}{%
         \def\my@changes #1#2#3{%
             \def\tempa{#1}
-            \def\expandafter\tempb{\addsortkey{\tempa}}
+            \def\tempb{\semver_add_sort_key:n{\tempa}}
             \org@changes@{\tempb}{#2}{#3}%
         }%
         \renewcommand*{\changes@}[3]{%
@@ -82,6 +83,7 @@
     }%
 }
 \makeatother
+\ExplSyntaxOff
 \EnableCrossrefs
 \CodelineIndex
 \setcounter{IndexColumns}{2}
