@@ -70,7 +70,7 @@
 \let\oldchanges\changes
 \renewcommand{\changes}[3]{
     \def\temp{#1}
-    \changes{\addsortkey{\temp}{#2}{#3}
+    \oldchanges{\addsortkey{\temp}{#2}{#3}
 }
 \EnableCrossrefs
 \CodelineIndex
