@@ -161,7 +161,7 @@
 %
 % \subsection{Options for disabling features which clash}
 %
-%    The option \Lopt{undefrules} is used to undefine |\headrule| and |\footrule| so that they may be defined subsequently by \Lpack{titlesec}.
+%    The option \Lopt{undefrules} is used to ine |\headrule| and |\footrule| so that they may be defined subsequently by \Lpack{titlesec}.
 %    \begin{macrocode}
 \DeclareBoolOption[false]{undefrules}
 %    \end{macrocode}
@@ -200,8 +200,8 @@
 \fi
 
 \ifatob@undefrules
-    \undef{\headrule}
-    \undef{\footrule}
+    \let\headrule\undefined
+    \let\footrule\undefined
 \fi
 %    \end{macrocode}
 %
