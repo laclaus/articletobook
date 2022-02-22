@@ -300,6 +300,7 @@ TSWLatexianTemp*
 #*Notes.bib
 
 ## Build files
+*.sty
 build/
 MANIFEST.md
 *.zip
