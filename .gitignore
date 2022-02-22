@@ -302,5 +302,4 @@ TSWLatexianTemp*
 ## Build files
 *.sty
 build/
-MANIFEST.md
 *.zip
