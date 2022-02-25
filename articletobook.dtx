@@ -190,6 +190,12 @@
 \DeclareBoolOption[true]{booklayout}
 \DeclareComplementaryOption{originallayout}{booklayout}
 %    \end{macrocode}
+%    These options determine whether to adjust the tables of contents etc. to match \Lpack{book}
+%    \begin{macrocode}
+\DeclareBoolOption[true]{booktables}
+\DeclareComplementaryOption{originaltables}{booktables}
+%    \end{macrocode}
+% \changes{v1.1.1}{2022/02/23}{Added \Lopt{booktables} and \Lopt{originaltables}}
 %
 % \section{Executing options}
 
@@ -524,7 +530,7 @@
         \@restonecolfalse\newpage
         \fi
         \thispagestyle{empty}%
-        \setcounter{page}\z@
+        \setcounter{page}\@ne
     }%
     {\if@restonecol\twocolumn \else \newpage \fi
     }
@@ -596,8 +602,9 @@
 % \subsubsection{Table of contents}
 %
 % \begin{macro}{\tableofcontents}
-%    We need to redefine the table of contents formatting using |\titlecontents|
+%    We need to redefine the table of contents formatting using |\titlecontents|.
 %    \begin{macrocode}
+\ifatob@booktables
 \renewcommand\tableofcontents{%
     \if@twocolumn
         \@restonecoltrue\onecolumn
@@ -610,7 +617,14 @@
     \@starttoc{toc}%
     \if@restonecol\twocolumn\fi
 }
-
+\else
+\renewcommand\tableofcontents{%
+    \section*{\contentsname
+        \@mkboth{%
+            \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \@starttoc{toc}%
+}
+\fi
 \contentsmargin{2.55em}
 
 \titlecontents{bookpart}
@@ -662,6 +676,7 @@
     {\hspace*{-5em}}
     {\titlerule*[1pc]{.}\contentspage}
 %    \end{macrocode}
+% \changes{v1.1.1}{2022/02/03}{Implemented \Lopt{originaltables}}
 % \end{macro}
 %
 % \subsubsection{List of figures}
